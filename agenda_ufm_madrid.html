@@ -1,0 +1,172 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Agenda UFM Madrid</title>
+  <style>
+    :root {
+      --bg: #f4f1ea;
+      --paper: #fffdf9;
+      --ink: #111111;
+      --muted: #5a5752;
+      --line: #d7d1c7;
+      --accent: #163a5f;
+      --warn: #8a4b00;
+    }
+
+    * { box-sizing: border-box; }
+
+    body {
+      margin: 0;
+      font-family: "IBM Plex Sans", "Avenir Next", "Segoe UI", sans-serif;
+      color: var(--ink);
+      background:
+        linear-gradient(180deg, #ede8dd 0%, #f4f1ea 18%, #f4f1ea 100%);
+    }
+
+    .wrap {
+      max-width: 980px;
+      margin: 0 auto;
+      padding: 28px 20px 56px;
+    }
+
+    .header {
+      border-top: 4px solid var(--accent);
+      padding-top: 14px;
+      margin-bottom: 24px;
+    }
+
+    h1 {
+      margin: 0;
+      font-size: 1.8rem;
+      letter-spacing: 0.02em;
+    }
+
+    .meta {
+      margin-top: 6px;
+      color: var(--muted);
+      font-size: 0.95rem;
+    }
+
+    section {
+      background: var(--paper);
+      border: 1px solid var(--line);
+      padding: 14px;
+    }
+
+    h2 {
+      margin: 0 0 10px;
+      font-size: 1.05rem;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      color: var(--accent);
+    }
+
+    ul {
+      margin: 0;
+      padding-left: 18px;
+      display: grid;
+      gap: 8px;
+    }
+
+    li {
+      line-height: 1.35;
+      padding-left: 2px;
+    }
+
+    .date {
+      color: var(--muted);
+      font-variant-numeric: tabular-nums;
+    }
+
+    .tag {
+      display: inline-block;
+      border: 1px solid var(--line);
+      border-radius: 999px;
+      padding: 1px 8px;
+      margin-left: 6px;
+      font-size: 0.8rem;
+      color: var(--muted);
+      vertical-align: middle;
+    }
+
+    .tag.warn {
+      border-color: #dcb079;
+      color: var(--warn);
+      background: #fff7ed;
+    }
+
+    .tag.type {
+      border-color: #b9c8d8;
+      color: var(--accent);
+      background: #f3f8fe;
+    }
+
+    .timeline {
+      list-style: none;
+      padding-left: 0;
+      margin: 0;
+      display: grid;
+      gap: 10px;
+    }
+
+    .timeline li {
+      border-left: 2px solid var(--line);
+      padding: 6px 0 6px 12px;
+    }
+
+    .timeline a {
+      color: var(--accent);
+      text-decoration-thickness: 1px;
+      text-underline-offset: 2px;
+      margin-left: 6px;
+      font-size: 0.92rem;
+    }
+
+    .foot {
+      margin-top: 18px;
+      font-size: 0.9rem;
+      color: var(--muted);
+      border-top: 1px solid var(--line);
+      padding-top: 10px;
+    }
+  </style>
+</head>
+<body>
+  <main class="wrap">
+    <header class="header">
+      <h1>Agenda UFM Madrid</h1>
+      <div class="meta">Emisión: 14-04-2026 · Solo eventos futuros</div>
+    </header>
+
+    <section>
+      <h2>Línea temporal (cronológica)</h2>
+      <ul class="timeline">
+        <li><span class="date">15-04-2026 · 15:30 a 20:30</span> Free Market Roadshow. CEU Madrid <span class="tag type">Evento externo</span><a href="https://juandemariana.org/eventos/free-market-roadshow-2026-from-global-crisis-to-the-spanish-challenge-navigating-uncertainty/" target="_blank" rel="noopener noreferrer">enlace</a></li>
+        <li><span class="date">24-04-2026 a 26-04-2026</span> LibertyCon Europe. Novotel Madrid <span class="tag type">Evento externo</span></li>
+        <li><span class="date">04-05-2026</span> Presentación de libro sobre inflación (IJM). Campus Madrid <span class="tag type">Evento externo</span></li>
+        <li><span class="date">07-05-2026</span> Mercadillo de costes y despedida de alumnos. Campus Madrid <span class="tag type">Academico</span></li>
+        <li><span class="date">08-05-2026</span> One Day DCH. Ciudad Deportiva Real Madrid, Madrid <span class="tag type">Academico</span></li>
+        <li><span class="date">11-05-2026 a 15-05-2026</span> Vicente Moreno viaja a Guatemala. Guatemala <span class="tag type">Viaje</span></li>
+        <li><span class="date">15-05-2026</span> Fin de semestre. Campus Madrid <span class="tag type">Academico</span></li>
+        <li><span class="date">01-06-2026</span> Inicio de cursos de verano. Campus Madrid <span class="tag type">Academico</span></li>
+        <li><span class="date">03-06-2026 a 05-06-2026</span> South Summit. La Nave, Madrid <span class="tag type">Evento externo</span><a href="https://www.southsummit.io/e/madrid" target="_blank" rel="noopener noreferrer">enlace</a></li>
+        <li><span class="date">08-06-2026 a 12-06-2026</span> Alumnos de MECOM en UFM Madrid. Campus Madrid <span class="tag type">Academico</span></li>
+        <li><span class="date">10-06-2026 a 11-06-2026</span> Congreso Austriaco. Campus Madrid <span class="tag type">Evento externo</span></li>
+        <li><span class="date">12-06-2026</span> Cena de la Libertad. Gran Casino de Madrid <span class="tag type">Evento externo</span></li>
+        <li><span class="date">13-06-2026</span> Oslo Freedom Forum. Oslo, Noruega <span class="tag type">Evento externo</span><a href="https://oslofreedomforum.com/" target="_blank" rel="noopener noreferrer">enlace</a></li>
+        <li><span class="date">24-06-2026</span> Libertad Digital. Campus Madrid <span class="tag type">Evento externo</span></li>
+        <li><span class="date">29-06-2026 a 03-07-2026</span> Summer Camp. Campus Madrid <span class="tag type">Academico</span></li>
+        <li><span class="date">03-07-2026</span> Fin de cursos de verano. Campus Madrid <span class="tag type">Academico</span></li>
+        <li><span class="date">31-08-2026</span> Inicio de semestre. Campus Madrid <span class="tag type">Academico</span></li>
+        <li><span class="date">28-09-2026</span> MBA Study Tour. Campus Madrid <span class="tag type">Academico</span></li>
+        <li><span class="date">19-10-2026 a 23-10-2026</span> Executive Week. Campus Madrid <span class="tag type">Evento propio</span><a href="https://madrid.ufm.edu/executive-week/" target="_blank" rel="noopener noreferrer">enlace</a></li>
+        <li><span class="date">15-12-2026</span> Fin de semestre. Campus Madrid <span class="tag type">Academico</span></li>
+      </ul>
+    </section>
+
+    <p class="foot">Fuente operativa: calendario ICS + confirmación manual del usuario para relevancia y eventos no publicados.</p>
+  </main>
+</body>
+</html>
