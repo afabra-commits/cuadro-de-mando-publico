@@ -134,6 +134,32 @@
   </style>
 </head>
 <body>
+  <div id="gate" style="position:fixed;inset:0;background:#f4f1ea;display:flex;align-items:center;justify-content:center;z-index:9999;">
+    <div style="background:#fffdf9;border:1px solid #d7d1c7;padding:32px 28px;max-width:320px;width:100%;text-align:center;">
+      <div style="font-size:0.8rem;text-transform:uppercase;letter-spacing:0.08em;color:#163a5f;margin-bottom:16px;">UFM Madrid</div>
+      <input id="pwd" type="password" placeholder="Contraseña" autofocus
+        style="width:100%;padding:8px 10px;border:1px solid #d7d1c7;background:#f4f1ea;font-size:1rem;outline:none;margin-bottom:12px;"
+        onkeydown="if(event.key==='Enter')check()" />
+      <div id="err" style="color:#8a4b00;font-size:0.85rem;min-height:1.2em;margin-bottom:8px;"></div>
+      <button onclick="check()"
+        style="background:#163a5f;color:#fff;border:none;padding:8px 24px;font-size:0.95rem;cursor:pointer;width:100%;">Entrar</button>
+    </div>
+  </div>
+  <script>
+    (function(){
+      if(sessionStorage.getItem('ufm_ok')==='1'){document.getElementById('gate').style.display='none';}
+    })();
+    function check(){
+      if(document.getElementById('pwd').value==='ManuelAyau1971'){
+        sessionStorage.setItem('ufm_ok','1');
+        document.getElementById('gate').style.display='none';
+      } else {
+        document.getElementById('err').textContent='Contraseña incorrecta';
+        document.getElementById('pwd').value='';
+        document.getElementById('pwd').focus();
+      }
+    }
+  </script>
   <main class="wrap">
     <header class="header">
       <h1>Agenda UFM Madrid</h1>
