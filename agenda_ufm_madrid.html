@@ -14,54 +14,54 @@
       --accent: #163a5f;
       --warn: #8a4b00;
     }
-
     * { box-sizing: border-box; }
-
     body {
       margin: 0;
       font-family: "IBM Plex Sans", "Avenir Next", "Segoe UI", sans-serif;
       color: var(--ink);
-      background:
-        linear-gradient(180deg, #ede8dd 0%, #f4f1ea 18%, #f4f1ea 100%);
+      background: linear-gradient(180deg, #ede8dd 0%, #f4f1ea 18%, #f4f1ea 100%);
     }
+    .wrap { max-width: 980px; margin: 0 auto; padding: 28px 20px 56px; }
+    .header { border-top: 4px solid var(--accent); padding-top: 14px; margin-bottom: 24px; }
+    h1 { margin: 0; font-size: 1.8rem; letter-spacing: 0.02em; }
+    .meta { margin-top: 6px; color: var(--muted); font-size: 0.95rem; }
+    section { background: var(--paper); border: 1px solid var(--line); padding: 14px; }
+    h2 { margin: 0 0 12px; font-size: 1.05rem; text-transform: uppercase; letter-spacing: 0.06em; color: var(--accent); }
 
-    .wrap {
-      max-width: 980px;
-      margin: 0 auto;
-      padding: 28px 20px 56px;
-    }
-
-    .header {
-      border-top: 4px solid var(--accent);
-      padding-top: 14px;
-      margin-bottom: 24px;
-    }
-
-    h1 {
-      margin: 0;
-      font-size: 1.8rem;
-      letter-spacing: 0.02em;
-    }
-
-    .meta {
-      margin-top: 6px;
-      color: var(--muted);
-      font-size: 0.95rem;
-    }
-
-    section {
-      background: var(--paper);
-      border: 1px solid var(--line);
-      padding: 14px;
-    }
-
-    h2 {
-      margin: 0 0 10px;
-      font-size: 1.05rem;
-      text-transform: uppercase;
+    .source {
+      display: inline-block;
+      border-radius: 3px;
+      padding: 2px 7px;
+      font-size: 0.68rem;
+      font-weight: 700;
       letter-spacing: 0.06em;
-      color: var(--accent);
+      text-transform: uppercase;
+      margin-right: 10px;
+      flex-shrink: 0;
+      white-space: nowrap;
     }
+    .src-ev  { background: #163a5f; color: #fff; }
+    .src-mc  { background: #6b2d5e; color: #fff; }
+    .src-vi  { background: #1a5c3a; color: #fff; }
+    .src-ac  { background: #5a5752; color: #fff; }
+
+    .timeline { list-style: none; padding: 0; margin: 0; display: grid; gap: 5px; }
+    .timeline li {
+      padding: 6px 12px;
+      border-radius: 3px;
+      line-height: 1.4;
+      display: flex;
+      align-items: center;
+      flex-wrap: wrap;
+    }
+    .ev-gray   { background: #e8e6e1; color: #666; }
+    .ev-gray .date { color: #999; }
+    .ev-red    { background: #c94444; color: #fff; }
+    .ev-red .date { color: rgba(255,255,255,0.75); }
+    .ev-purple { background: #ede4f0; }
+    .ev-green  { background: #d5eadb; }
+
+    .date { color: var(--muted); font-variant-numeric: tabular-nums; margin-right: 6px; }
 
     .tag {
       display: inline-block;
@@ -69,86 +69,23 @@
       border-radius: 999px;
       padding: 1px 8px;
       margin-left: 6px;
-      font-size: 0.8rem;
+      font-size: 0.78rem;
       color: var(--muted);
-      vertical-align: middle;
     }
-
-    .tag.warn {
-      border-color: #dcb079;
-      color: var(--warn);
-      background: #fff7ed;
-    }
-
-    .tag.type {
-      border-color: #b9c8d8;
-      color: var(--accent);
-      background: #f3f8fe;
-    }
-
-    .timeline {
-      list-style: none;
-      padding-left: 0;
-      margin: 0;
-      display: grid;
-      gap: 6px;
-    }
-
-    .timeline li {
-      padding: 7px 12px;
-      border-radius: 3px;
-      line-height: 1.35;
-    }
-
-    .ev-gray { background: #e8e6e1; color: #888; }
-    .ev-gray .date { color: #aaa; }
-    .ev-green { background: #d5eadb; }
-    .ev-red { background: #c94444; color: #fff; }
-    .ev-red .date { color: rgba(255,255,255,0.8); }
-    .ev-red a { color: #fde8c0; }
-
-    .date {
-      color: var(--muted);
-      font-variant-numeric: tabular-nums;
-    }
-
-    .timeline a {
-      color: var(--accent);
-      text-decoration-thickness: 1px;
-      text-underline-offset: 2px;
-      margin-left: 6px;
-      font-size: 0.92rem;
-    }
+    .tag.warn { border-color: #dcb079; color: var(--warn); background: #fff7ed; }
 
     .legend {
       display: flex;
-      gap: 16px;
-      margin-bottom: 14px;
-      font-size: 0.85rem;
-      color: var(--muted);
+      gap: 6px 18px;
       flex-wrap: wrap;
-    }
-
-    .legend-item {
-      display: flex;
       align-items: center;
-      gap: 6px;
-    }
-
-    .legend-dot {
-      width: 12px;
-      height: 12px;
-      border-radius: 2px;
-      flex-shrink: 0;
-    }
-
-    .foot {
-      margin-top: 18px;
-      font-size: 0.9rem;
+      margin-bottom: 14px;
+      font-size: 0.83rem;
       color: var(--muted);
-      border-top: 1px solid var(--line);
-      padding-top: 10px;
     }
+    .legend-item { display: flex; align-items: center; gap: 6px; }
+
+    .foot { margin-top: 18px; font-size: 0.88rem; color: var(--muted); border-top: 1px solid var(--line); padding-top: 10px; }
   </style>
 </head>
 <body>
@@ -164,9 +101,7 @@
     </div>
   </div>
   <script>
-    (function(){
-      if(sessionStorage.getItem('ufm_ok')==='1'){document.getElementById('gate').style.display='none';}
-    })();
+    (function(){ if(sessionStorage.getItem('ufm_ok')==='1'){ document.getElementById('gate').style.display='none'; } })();
     function check(){
       if(document.getElementById('pwd').value==='ManuelAyau1971'){
         sessionStorage.setItem('ufm_ok','1');
@@ -183,58 +118,111 @@
       <h1>Agenda UFM Madrid</h1>
       <div class="meta">Emisión: Miércoles, 3 de junio de 2026 · Solo eventos futuros</div>
     </header>
-
     <section>
       <div class="legend">
-        <div class="legend-item"><div class="legend-dot" style="background:#fad9d4;"></div> Organizado por UFM o acogido en el campus</div>
-        <div class="legend-item"><div class="legend-dot" style="background:#d5eadb;"></div> Viajes · Eventos externos fuera del campus</div>
-        <div class="legend-item"><div class="legend-dot" style="background:#e8e6e1;"></div> Festivos · Vacaciones · Ciclo académico</div>
+        <div class="legend-item"><span class="source src-ev">Eventos UFM</span> Eventos del campus</div>
+        <div class="legend-item"><span class="source src-mc">McCloskey</span> Visita Deirdre McCloskey</div>
+        <div class="legend-item"><span class="source src-vi">Viajes</span> Desplazamientos del equipo</div>
+        <div class="legend-item"><span class="source src-ac">Académico</span> Ciclo académico</div>
       </div>
-      <h2>Línea temporal (cronológica)</h2>
+      <h2>Línea temporal</h2>
       <ul class="timeline">
-        <li class="ev-red"><span class="date">3 de junio de 2026 · 13:30</span> ¡Hola Madrid! + tapas. Campus Madrid <span class="tag type">Evento propio</span></li>
-        <li class="ev-red"><span class="date">3 de junio de 2026 · 19:00</span> Encuentro de Value con Luisfer Quintero y Domingo Soriano. Campus Madrid <span class="tag type">Evento propio</span></li>
-        <li class="ev-green"><span class="date">4 al 5 de junio de 2026</span> South Summit. La Nave, Madrid <span class="tag type">Evento externo</span><a href="https://www.southsummit.io/e/madrid" target="_blank" rel="noopener noreferrer">enlace</a></li>
-        <li class="ev-red"><span class="date">6 de junio de 2026</span> Seminario sobre Incertidumbre Radical (IJM). Campus Madrid <span class="tag type">Evento externo</span><a href="https://juandemariana.org/eventos/seminario-sobre-incertidumbre-radical/" target="_blank" rel="noopener noreferrer">enlace</a></li>
-        <li class="ev-green"><span class="date">8 al 10 de junio de 2026</span> Pablo Atela en UFM Panamá. Panamá <span class="tag type">Viaje</span></li>
-        <li class="ev-red"><span class="date">8 al 13 de junio de 2026</span> McCloskey en Madrid. Campus Madrid <span class="tag type">Viaje</span></li>
-        <li class="ev-red"><span class="date">8 al 15 de junio de 2026</span> Semana de alumnos del MECOM en Madrid. Campus Madrid <span class="tag type">Academico</span></li>
-        <li class="ev-red"><span class="date">9 de junio de 2026 · 19:15</span> Presentación de estudio de Javier El Hage. Campus Madrid <span class="tag type">Evento propio</span></li>
-        <li class="ev-red"><span class="date">9 al 11 de junio de 2026</span> XIX Congreso de Economía Austriaca. Campus Madrid <span class="tag type">Evento externo</span></li>
-        <li class="ev-red"><span class="date">10 de junio de 2026 · 15:30</span> Fábrica de Cervezas Mahou. Av. del Río Henares, 68, Alovera, Guadalajara <span class="tag type">Evento propio</span></li>
-        <li class="ev-green"><span class="date">11 al 12 de junio de 2026</span> Pablo Atela en proyecto Philips. Panamá <span class="tag type">Viaje</span></li>
-        <li class="ev-red"><span class="date">12 de junio de 2026</span> Liberacción. Campus Madrid <span class="tag type">Evento externo</span></li>
-        <li class="ev-red"><span class="date">12 de junio de 2026 · 10:00</span> Carlos Rodríguez Braun — Cómo hacer la economía apasionante. Campus Madrid <span class="tag type">Evento propio</span></li>
-        <li class="ev-red"><span class="date">12 de junio de 2026 · 10:00</span> Museo del Prado. Museo del Prado, Madrid <span class="tag type">Evento propio</span></li>
-        <li class="ev-green"><span class="date">12 de junio de 2026</span> Cena de la Libertad. Gran Casino de Madrid <span class="tag type">Evento externo</span></li>
-<li class="ev-red"><span class="date">18 de junio de 2026 · 20:00</span> Paella Team Building. Por confirmar <span class="tag type">Evento propio</span></li>
-        <li class="ev-red"><span class="date">19 de junio de 2026 · 9:00</span> Toledo. Toledo <span class="tag type">Evento propio</span></li>
-        <li class="ev-red"><span class="date">23 de junio de 2026 · 11:30</span> Juan Ramón Rallo — Cómo difundir el liberalismo a un millón de personas. Campus Madrid <span class="tag type">Evento propio</span></li>
-        <li class="ev-red"><span class="date">24 de junio de 2026</span> Libertad Digital. Campus Madrid <span class="tag type">Evento externo</span></li>
-        <li class="ev-red"><span class="date">24 de junio de 2026</span> Aula 42 — Telefónica. Distrito Telefónica, Madrid <span class="tag type">Evento propio</span></li>
-        <li class="ev-red"><span class="date">24 de junio de 2026 · 10:00</span> Gustavo Martínez — Cómo invertir para ser libre. Campus Madrid <span class="tag type">Evento propio</span></li>
-        <li class="ev-red"><span class="date">25 de junio de 2026 · 19:00</span> Fiesta de despedida con paella. Campus Madrid <span class="tag type">Evento propio</span></li>
-        <li class="ev-red"><span class="date">26 de junio de 2026 · 6:00</span> Mercamadrid. Mercamadrid, Madrid <span class="tag type">Evento propio</span><span class="tag warn">Pendiente confirmación</span></li>
-        <li class="ev-red"><span class="date">28 de junio de 2026 · 9:00</span> Rally en el Rastro. El Rastro, Madrid <span class="tag type">Evento propio</span></li>
-        <li class="ev-red"><span class="date">Junio de 2026</span> Jesús Huerta de Soto — ¿Qué pasa cuando un político lee a Mises? Campus Madrid <span class="tag type">Evento propio</span><span class="tag warn">Fecha por confirmar</span></li>
-        <li class="ev-gray"><span class="date">3 de julio de 2026</span> Fin de cursos de verano. Campus Madrid <span class="tag type">Academico</span></li>
-        <li class="ev-green"><span class="date">6 al 10 de julio de 2026</span> Proyectos EPA Ferreterías. Guatemala / Costa Rica <span class="tag type">Viaje</span></li>
-        <li class="ev-gray"><span class="date">27 de julio al 26 de agosto de 2026</span> Vacaciones de verano. Campus Madrid <span class="tag type">Academico</span></li>
-        <li class="ev-gray"><span class="date">27 de agosto de 2026</span> Primer día de trabajo. Campus Madrid <span class="tag type">Academico</span></li>
-        <li class="ev-gray"><span class="date">31 de agosto de 2026</span> Inicio de semestre. Campus Madrid <span class="tag type">Academico</span></li>
-        <li class="ev-red"><span class="date">28 de septiembre al 2 de octubre de 2026</span> Business Study Tour MBA. Campus Madrid <span class="tag type">Academico</span></li>
-        <li class="ev-gray"><span class="date">12 de octubre de 2026</span> Festivo: El Pilar. Campus Madrid <span class="tag type">Academico</span></li>
-        <li class="ev-red"><span class="date">19 al 23 de octubre de 2026</span> Executive Week. Campus Madrid <span class="tag type">Evento propio</span><a href="https://madrid.ufm.edu/executive-week/" target="_blank" rel="noopener noreferrer">enlace</a></li>
-        <li class="ev-gray"><span class="date">2 de noviembre de 2026</span> Festivo: Todos los Santos. Campus Madrid <span class="tag type">Academico</span></li>
-        <li class="ev-gray"><span class="date">9 de noviembre de 2026</span> Festivo: La Almudena. Campus Madrid <span class="tag type">Academico</span></li>
-        <li class="ev-red"><span class="date">22 al 28 de noviembre de 2026</span> Experiencia internacional de Madrid 2026. Campus Madrid <span class="tag type">Academico</span></li>
-        <li class="ev-gray"><span class="date">7 de diciembre de 2026</span> Festivo: Día de la Constitución. Campus Madrid <span class="tag type">Academico</span></li>
-        <li class="ev-gray"><span class="date">8 de diciembre de 2026</span> Festivo: Inmaculada Concepción. Campus Madrid <span class="tag type">Academico</span></li>
-        <li class="ev-gray"><span class="date">15 de diciembre de 2026</span> Fin de semestre. Campus Madrid <span class="tag type">Academico</span></li>
+
+        <!-- 3 de junio -->
+        <li class="ev-red"><span class="source src-ev">Eventos UFM</span><span class="date">3 de junio de 2026 · 13:30</span> Bienvenida cursos de verano. Campus Madrid</li>
+        <li class="ev-red"><span class="source src-ev">Eventos UFM</span><span class="date">3 de junio de 2026 · 19:00</span> Value Investing — Domingo Soriano. Campus Madrid</li>
+
+        <!-- 4 de junio -->
+        <li class="ev-purple"><span class="source src-mc">McCloskey</span><span class="date">4 de junio de 2026 · 20:00</span> Dinner with George Selgin <span class="tag warn">Por confirmar</span></li>
+
+        <!-- 5 de junio -->
+        <li class="ev-green"><span class="source src-ev">Eventos UFM</span><span class="date">5 de junio de 2026 · 9:00</span> SOUTH SUMMIT. La Nave, Madrid</li>
+        <li class="ev-purple"><span class="source src-mc">McCloskey</span><span class="date">5 de junio de 2026 · 10:00</span> Alhambra. Granada <span class="tag warn">Por confirmar</span></li>
+
+        <!-- 6 de junio -->
+        <li class="ev-red"><span class="source src-ev">Eventos UFM</span><span class="date">6 de junio de 2026 · 9:30</span> Seminario Socrático — Incertidumbre Radical (IJM). Campus Madrid</li>
+
+        <!-- 7 de junio -->
+        <li class="ev-purple"><span class="source src-mc">McCloskey</span><span class="date">7 de junio de 2026 · 19:00</span> Corrida — Las Ventas. Plaza de Toros Las Ventas, Madrid</li>
+
+        <!-- 8 de junio -->
+        <li class="ev-green"><span class="source src-vi">Viajes</span><span class="date">8 al 10 de junio de 2026</span> Pablo Atela — UFM Panamá. Panamá</li>
+        <li class="ev-red"><span class="source src-ev">Eventos UFM</span><span class="date">8 al 12 de junio de 2026</span> MECOM. Campus Madrid</li>
+        <li class="ev-purple"><span class="source src-mc">McCloskey</span><span class="date">8 de junio de 2026 · 9:15</span> Seminar. Campus Madrid</li>
+        <li class="ev-purple"><span class="source src-mc">McCloskey</span><span class="date">8 de junio de 2026 · 12:00</span> Interview — John Müller (ABC). Campus Madrid</li>
+        <li class="ev-purple"><span class="source src-mc">McCloskey</span><span class="date">8 de junio de 2026 · 13:30</span> Lunch with UFM professors. Campus Madrid</li>
+        <li class="ev-purple"><span class="source src-mc">McCloskey</span><span class="date">8 de junio de 2026 · 16:45</span> Seminar: The Ethics of Liberty. Campus Madrid</li>
+        <li class="ev-purple"><span class="source src-mc">McCloskey</span><span class="date">8 de junio de 2026 · 17:30</span> Interview — Rubén Folguera (Libertad Digital). Campus Madrid</li>
+        <li class="ev-purple"><span class="source src-mc">McCloskey</span><span class="date">8 de junio de 2026 · 20:00</span> Dinner — Restaurante En Bable. Madrid</li>
+
+        <!-- 9 de junio -->
+        <li class="ev-red"><span class="source src-ev">Eventos UFM</span><span class="date">9 al 11 de junio de 2026</span> XIX Congreso de Economía Austriaca. Campus Madrid</li>
+        <li class="ev-purple"><span class="source src-mc">McCloskey</span><span class="date">9 de junio de 2026 · 10:00</span> Visita a Toledo. Toledo</li>
+        <li class="ev-red"><span class="source src-ev">Eventos UFM</span><span class="date">9 de junio de 2026 · 16:00</span> Inauguración — Congreso. Campus Madrid</li>
+        <li class="ev-purple"><span class="source src-mc">McCloskey</span><span class="date">9 de junio de 2026 · 16:00</span> Seminar: The Ethics of Liberty. Campus Madrid</li>
+        <li class="ev-red"><span class="source src-ev">Eventos UFM</span><span class="date">9 de junio de 2026 · 16:15</span> Panel de Políticas Públicas I — Congreso. Campus Madrid</li>
+        <li class="ev-red"><span class="source src-ev">Eventos UFM</span><span class="date">9 de junio de 2026 · 18:15</span> Panel de Historia del Pensamiento I — Congreso. Campus Madrid</li>
+        <li class="ev-red"><span class="source src-ev">Eventos UFM</span><span class="date">9 de junio de 2026 · 19:15</span> Conferencia: «Tyranny tracker» — Javier El-Hage. Campus Madrid</li>
+        <li class="ev-purple"><span class="source src-mc">McCloskey</span><span class="date">9 de junio de 2026 · 20:30</span> Dinner with libertarian entrepreneurs</li>
+
+        <!-- 10 de junio -->
+        <li class="ev-purple"><span class="source src-mc">McCloskey</span><span class="date">10 de junio de 2026 · 9:15</span> Seminar. Campus Madrid</li>
+        <li class="ev-purple"><span class="source src-mc">McCloskey</span><span class="date">10 de junio de 2026 · 12:00</span> Interview — Libertad TV (UFM). Campus Madrid</li>
+        <li class="ev-purple"><span class="source src-mc">McCloskey</span><span class="date">10 de junio de 2026 · 13:30</span> Lunch with Madrid scholars. Campus Madrid</li>
+        <li class="ev-purple"><span class="source src-mc">McCloskey</span><span class="date">10 de junio de 2026 · 15:30</span> Interview — Instituto Juan de Mariana. Campus Madrid</li>
+        <li class="ev-green"><span class="source src-ev">Eventos UFM</span><span class="date">10 de junio de 2026 · 15:30</span> Fábrica de Cervezas Mahou. Alovera, Guadalajara</li>
+        <li class="ev-red"><span class="source src-ev">Eventos UFM</span><span class="date">10 de junio de 2026 · 16:15</span> Panel de Orden Espontáneo — Congreso. Campus Madrid</li>
+        <li class="ev-red"><span class="source src-ev">Eventos UFM</span><span class="date">10 de junio de 2026 · 18:15</span> Panel de Políticas Públicas II — Congreso. Campus Madrid</li>
+        <li class="ev-purple"><span class="source src-mc">McCloskey</span><span class="date">10 de junio de 2026 · 19:00</span> Interview at Value School (Cobas). Madrid</li>
+        <li class="ev-red"><span class="source src-ev">Eventos UFM</span><span class="date">10 de junio de 2026 · 19:15</span> Conferencia: «Reglas libertarias» — Katherine Flórez. Campus Madrid</li>
+        <li class="ev-purple"><span class="source src-mc">McCloskey</span><span class="date">10 de junio de 2026 · 20:30</span> Dinner with Cobas Team</li>
+
+        <!-- 11 de junio -->
+        <li class="ev-green"><span class="source src-vi">Viajes</span><span class="date">11 al 12 de junio de 2026</span> Pablo Atela — Proyecto Philips. Panamá</li>
+        <li class="ev-purple"><span class="source src-mc">McCloskey</span><span class="date">11 de junio de 2026 · 10:00</span> Visita a Segovia. Segovia</li>
+        <li class="ev-red"><span class="source src-ev">Eventos UFM</span><span class="date">11 de junio de 2026 · 16:15</span> Panel de Fundamentos — Congreso. Campus Madrid</li>
+        <li class="ev-red"><span class="source src-ev">Eventos UFM</span><span class="date">11 de junio de 2026 · 18:15</span> Panel de Historia del Pensamiento II (paralela) — Congreso. Campus Madrid</li>
+        <li class="ev-red"><span class="source src-ev">Eventos UFM</span><span class="date">11 de junio de 2026 · 18:15</span> Panel de Políticas Públicas III (paralela) — Congreso. Campus Madrid</li>
+        <li class="ev-red"><span class="source src-ev">Eventos UFM</span><span class="date">11 de junio de 2026 · 19:15</span> Conferencia de clausura: Calzada &amp; McCloskey. Campus Madrid</li>
+        <li class="ev-purple"><span class="source src-mc">McCloskey</span><span class="date">11 de junio de 2026 · 20:30</span> Cena</li>
+
+        <!-- 12 de junio -->
+        <li class="ev-purple"><span class="source src-mc">McCloskey</span><span class="date">12 de junio de 2026 · 9:15</span> Seminar. Campus Madrid</li>
+        <li class="ev-red"><span class="source src-ev">Eventos UFM</span><span class="date">12 de junio de 2026 · 9:30</span> Liberacción IJM. Campus Madrid</li>
+        <li class="ev-purple"><span class="source src-mc">McCloskey</span><span class="date">12 de junio de 2026 · 12:00</span> Visita al Ateneo de Madrid</li>
+        <li class="ev-purple"><span class="source src-mc">McCloskey</span><span class="date">12 de junio de 2026 · 21:00</span> Cena de la Libertad. Real Casino de Madrid</li>
+
+        <!-- Resto de junio -->
+        <li class="ev-red"><span class="source src-ev">Eventos UFM</span><span class="date">18 de junio de 2026 · 20:00</span> Paella Team Building. Campus Madrid</li>
+        <li class="ev-red"><span class="source src-ev">Eventos UFM</span><span class="date">23 de junio de 2026 · 11:30</span> Juan Ramón Rallo — Cómo difundir el liberalismo a un millón de personas. Campus Madrid</li>
+        <li class="ev-red"><span class="source src-ev">Eventos UFM</span><span class="date">24 de junio de 2026 · 10:00</span> Gustavo Martínez — Cómo invertir para ser libre. Campus Madrid</li>
+        <li class="ev-red"><span class="source src-ev">Eventos UFM</span><span class="date">24 de junio de 2026 · 18:00</span> Libertad Digital. Campus Madrid</li>
+        <li class="ev-red"><span class="source src-ev">Eventos UFM</span><span class="date">25 de junio de 2026 · 19:00</span> Fiesta de despedida con paella. Campus Madrid</li>
+
+        <!-- Julio -->
+        <li class="ev-green"><span class="source src-vi">Viajes</span><span class="date">6 al 10 de julio de 2026</span> Proyectos EPA Ferreterías. Guatemala / Costa Rica</li>
+        <li class="ev-gray"><span class="source src-ac">Académico</span><span class="date">3 de julio de 2026</span> Fin de cursos de verano <span class="tag warn">Pendiente añadir al calendario</span></li>
+
+        <!-- Verano -->
+        <li class="ev-gray"><span class="source src-ev">Eventos UFM</span><span class="date">27 de julio al 26 de agosto de 2026</span> Vacaciones de verano</li>
+        <li class="ev-gray"><span class="source src-ac">Académico</span><span class="date">27 de agosto de 2026</span> Primer día de trabajo <span class="tag warn">Pendiente añadir al calendario</span></li>
+        <li class="ev-gray"><span class="source src-ac">Académico</span><span class="date">31 de agosto de 2026</span> Inicio de semestre <span class="tag warn">Pendiente añadir al calendario</span></li>
+
+        <!-- Otoño -->
+        <li class="ev-red"><span class="source src-ev">Eventos UFM</span><span class="date">28 de septiembre al 1 de octubre de 2026</span> MBA Study Tour</li>
+        <li class="ev-gray"><span class="source src-ev">Eventos UFM</span><span class="date">12 de octubre de 2026</span> Festivo: El Pilar</li>
+        <li class="ev-red"><span class="source src-ev">Eventos UFM</span><span class="date">19 al 23 de octubre de 2026</span> Executive Week. Campus Madrid</li>
+        <li class="ev-gray"><span class="source src-ev">Eventos UFM</span><span class="date">2 de noviembre de 2026</span> Festivo: Todos los Santos</li>
+        <li class="ev-gray"><span class="source src-ev">Eventos UFM</span><span class="date">9 de noviembre de 2026</span> Festivo: La Almudena</li>
+
+        <!-- Diciembre -->
+        <li class="ev-gray"><span class="source src-ev">Eventos UFM</span><span class="date">7 de diciembre de 2026</span> Festivo: Día de la Constitución</li>
+        <li class="ev-gray"><span class="source src-ev">Eventos UFM</span><span class="date">8 de diciembre de 2026</span> Festivo: Inmaculada Concepción</li>
+        <li class="ev-gray"><span class="source src-ac">Académico</span><span class="date">15 de diciembre de 2026</span> Fin de semestre <span class="tag warn">Pendiente añadir al calendario</span></li>
+
       </ul>
     </section>
-
-    <p class="foot">Fuente operativa: calendario ICS + confirmación manual del usuario para relevancia y eventos no publicados.</p>
+    <p class="foot">Fuente: Google Calendar — Eventos UFM Madrid · McCloskey visit · Viajes · Calendario Académico UFMMadrid.</p>
   </main>
 </body>
 </html>
