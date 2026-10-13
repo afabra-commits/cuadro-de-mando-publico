@@ -1,0 +1,1933 @@
+<title>Libertad TV · UFM Madrid</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<style>
+@import url('https://fonts.googleapis.com/css2?family=DM+Sans:opsz,wght@9..40,300;9..40,400;9..40,500;9..40,600;9..40,700&display=swap');
+
+:root {
+  --white: #ffffff;
+  --black: #1a1a1a;
+  --grey: #999999;
+  --light-grey: #e5e5e5;
+  --faint: #f5f5f5;
+  --red: #c41e1e;
+  --accent: #2a6496;
+}
+
+* { box-sizing: border-box; }
+
+body {
+  background: var(--white);
+  color: var(--black);
+  font-family: 'DM Sans', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  font-weight: 300;
+  font-size: 15px;
+  line-height: 1.5;
+  -webkit-font-smoothing: antialiased;
+  margin: 0;
+  padding: 0;
+}
+
+.sheet { max-width: 1100px; margin: 0 auto; padding: 48px 32px 80px; }
+
+h1 { font-size: 32px; font-weight: 700; letter-spacing: -0.03em; margin: 0 0 4px; }
+.subtitulo { color: var(--grey); font-size: 14px; margin: 0 0 32px; }
+
+h2 { font-size: 20px; font-weight: 700; letter-spacing: -0.02em; margin: 48px 0 4px; }
+.h2-sub { color: var(--grey); font-size: 13px; margin: 0 0 16px; }
+
+strong { font-weight: 600; }
+
+.aviso {
+  border: 1px solid var(--light-grey);
+  background: var(--faint);
+  padding: 16px 20px;
+  margin: 0 0 32px;
+  font-size: 13px;
+  color: var(--black);
+}
+.aviso p { margin: 0 0 8px; }
+.aviso p:last-child { margin-bottom: 0; }
+
+.leyenda {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 24px;
+  border-top: 1px solid var(--light-grey);
+  border-bottom: 1px solid var(--light-grey);
+  padding: 16px 0;
+  margin: 0 0 24px;
+  font-size: 13px;
+}
+.leyenda div { max-width: 240px; }
+.leyenda .et { font-weight: 600; display: block; margin-bottom: 2px; }
+
+.stats { display: flex; gap: 32px; margin: 0 0 24px; }
+.stat { text-align: left; }
+.stat-n { font-size: 28px; font-weight: 700; letter-spacing: -0.02em; }
+.stat-l { font-size: 12px; color: var(--grey); }
+
+table { width: 100%; border-collapse: collapse; font-size: 13px; }
+th {
+  text-align: left;
+  font-weight: 600;
+  font-size: 11px;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  color: var(--grey);
+  border-bottom: 1px solid var(--black);
+  padding: 8px 10px;
+}
+td {
+  padding: 8px 10px;
+  border-bottom: 1px solid var(--light-grey);
+  vertical-align: top;
+}
+td.num { text-align: right; white-space: nowrap; }
+td.titulo { max-width: 420px; }
+td.titulo a { color: var(--black); text-decoration: none; }
+td.titulo a:hover { text-decoration: underline; }
+
+.diag-exito { color: var(--accent); font-weight: 600; white-space: nowrap; }
+.diag-joya { color: var(--black); font-weight: 600; white-space: nowrap; }
+.diag-promesa { color: var(--red); font-weight: 600; white-space: nowrap; }
+.diag-sintiron { color: var(--grey); font-weight: 600; white-space: nowrap; }
+
+.tabla-wrap { overflow-x: auto; }
+
+footer {
+  margin-top: 48px;
+  padding-top: 12px;
+  border-top: 1px solid var(--light-grey);
+  font-size: 11px;
+  color: var(--grey);
+}
+
+#gate {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+}
+#gate .box { text-align: center; max-width: 300px; width: 100%; padding: 0 24px; }
+#gate p.titulo { font-size: 16px; font-weight: 700; margin: 0 0 4px; }
+#gate p.sub { font-size: 13px; color: var(--grey); margin: 0 0 24px; }
+#gate input {
+  width: 100%;
+  padding: 10px 12px;
+  font-size: 15px;
+  font-family: inherit;
+  border: 1px solid var(--light-grey);
+  background: var(--white);
+  color: var(--black);
+  outline: none;
+  margin-bottom: 10px;
+}
+#gate button {
+  width: 100%;
+  padding: 10px;
+  font-size: 15px;
+  font-family: inherit;
+  font-weight: 600;
+  background: var(--black);
+  color: var(--white);
+  border: none;
+  cursor: pointer;
+}
+#pwd-error { font-size: 12px; color: var(--red); margin-top: 10px; display: none; }
+</style>
+
+<div id="gate">
+  <div class="box">
+    <p class="titulo">Libertad TV</p>
+    <p class="sub">Cuadro de Mando · UFM Madrid</p>
+    <input id="pwd-input" type="password" placeholder="Contraseña" onkeydown="if(event.key==='Enter')checkPwd()">
+    <button onclick="checkPwd()">Entrar</button>
+    <p id="pwd-error">Contraseña incorrecta</p>
+  </div>
+</div>
+
+<div id="app" style="display:none;">
+<div class="sheet">
+
+<h1>Libertad TV</h1>
+<p class="subtitulo">Cuadro de Mando · UFM Madrid · Actualizado: 4 de septiembre de 2026</p>
+
+<div class="aviso">
+<p><strong>Primera versión, umbrales recalibrados.</strong> El corte alto/bajo de la Tríada ya no usa los objetivos genéricos de YouTube (6% CTR / 10 min AVD / 30% retención), sino terciles del propio canal a 3 de septiembre de 2026 (214 vídeos), separados por formato: "alto" = tercio superior del canal en ese formato. Largos: CTR &gt;2,5%, AVD &gt;3:00. Shorts: CTR &gt;3,5%, retención &gt;65%. Se recalibrará cuando el canal cambie de fase (producción profesional desde octubre de 2026) o cuando haya bastantes más vídeos.</p>
+<p><strong>Solo Nivel 1 (Tríada de Control).</strong> Los bloques de profundidad (Mercado, Fidelidad, Ponentes, Marca) necesitan los exports de Geografía, Edad y sexo, Suscripción y Fuentes de tráfico, y el fichero de etiquetado manual: ninguno está en <code>datos/</code> todavía.</p>
+<p><strong>Ventana.</strong> Datos acumulados a fecha de export (2 de septiembre de 2026), no una ventana fija de 7 o 28 días por vídeo: ese cálculo exige un export por rango de fechas que este CSV no trae.</p>
+</div>
+
+<div class="leyenda">
+<div><span class="et diag-exito">Éxito orgánico</span>CTR y AVD en el tercio alto del canal. No tocar: modelo a seguir.</div>
+<div><span class="et diag-joya">Joya oculta</span>AVD en el tercio alto, CTR no. Cambiar miniatura y título.</div>
+<div><span class="et diag-promesa">Promesa incumplida</span>CTR en el tercio alto, AVD no. Revisar los primeros 120 segundos.</div>
+<div><span class="et diag-sintiron">Sin tirón</span>Ninguno de los dos en el tercio alto. Revisar tema y formato.</div>
+</div>
+
+<h2>Vídeos largos</h2>
+<p class="h2-sub">92 vídeos · "alto" = CTR &gt;2,5% · AVD &gt;3:00</p>
+<div class="stats">
+<div class="stat"><div class="stat-n">17</div><div class="stat-l">Éxito orgánico</div></div>
+<div class="stat"><div class="stat-n">13</div><div class="stat-l">Joya oculta</div></div>
+<div class="stat"><div class="stat-n">12</div><div class="stat-l">Promesa incumplida</div></div>
+<div class="stat"><div class="stat-n">50</div><div class="stat-l">Sin tirón</div></div>
+</div>
+<div class="tabla-wrap">
+<table>
+<tr><th>Fecha</th><th>Título</th><th>CTR</th><th>AVD</th><th>Vistas</th><th>Diagnóstico</th></tr>
+<tr>
+<td>2 de septiembre de 2026</td>
+<td class="titulo"><a href="https://youtube.com/watch?v=ZhZP9pGP0Kw" target="_blank" rel="noopener">La LIBERTAD, no el CAPITAL, creó la PROSPERIDAD | Deirdre McCloskey</a></td>
+<td class="num">3.52%</td>
+<td class="num">3:14</td>
+<td class="num">538</td>
+<td class="diag-exito">Éxito orgánico</td>
+</tr>
+<tr>
+<td>1 de septiembre de 2026</td>
+<td class="titulo"><a href="https://youtube.com/watch?v=VF8s3sOyifs" target="_blank" rel="noopener">El EXPERIMENTO LIBERTARIO de MILEI frente a la REALIDAD | Iván Carrino</a></td>
+<td class="num">4.48%</td>
+<td class="num">10:40</td>
+<td class="num">17.196</td>
+<td class="diag-exito">Éxito orgánico</td>
+</tr>
+<tr>
+<td>30 de agosto de 2026</td>
+<td class="titulo"><a href="https://youtube.com/watch?v=RYreitgZRvM" target="_blank" rel="noopener">MARX y el precio de sus IDEAS | Carlos Rodríguez Braun</a></td>
+<td class="num">1.59%</td>
+<td class="num">2:23</td>
+<td class="num">605</td>
+<td class="diag-sintiron">Sin tirón</td>
+</tr>
+<tr>
+<td>29 de agosto de 2026</td>
+<td class="titulo"><a href="https://youtube.com/watch?v=SAJnj1mccd8" target="_blank" rel="noopener">La cara OCULTA del PODER POLÍTICO | Carlos Rodríguez Braun</a></td>
+<td class="num">1.75%</td>
+<td class="num">2:04</td>
+<td class="num">660</td>
+<td class="diag-sintiron">Sin tirón</td>
+</tr>
+<tr>
+<td>28 de agosto de 2026</td>
+<td class="titulo"><a href="https://youtube.com/watch?v=fytpL6yr1mU" target="_blank" rel="noopener">ADAM SMITH y el secreto de los PAÍSES RICOS</a></td>
+<td class="num">2.42%</td>
+<td class="num">3:02</td>
+<td class="num">638</td>
+<td class="diag-joya">Joya oculta</td>
+</tr>
+<tr>
+<td>27 de agosto de 2026</td>
+<td class="titulo"><a href="https://youtube.com/watch?v=m469fuFg6W0" target="_blank" rel="noopener">Los verdaderos ORÍGENES del LIBERALISMO | Carlos Rodríguez Braun</a></td>
+<td class="num">0.57%</td>
+<td class="num">1:39</td>
+<td class="num">630</td>
+<td class="diag-sintiron">Sin tirón</td>
+</tr>
+<tr>
+<td>26 de agosto de 2026</td>
+<td class="titulo"><a href="https://youtube.com/watch?v=KEC656oFxMg" target="_blank" rel="noopener">Por qué Karl Popper ABANDONÓ el COMUNISMO | Carlos Rodríguez Braun #shorts</a></td>
+<td class="num">7.02%</td>
+<td class="num">1:00</td>
+<td class="num">12.134</td>
+<td class="diag-promesa">Promesa incumplida</td>
+</tr>
+<tr>
+<td>24 de agosto de 2026</td>
+<td class="titulo"><a href="https://youtube.com/watch?v=NSzOn5naQSg" target="_blank" rel="noopener">Por esto unas IDEAS crean PROSPERIDAD y otras DESTRUYEN países | Carlos Rodríguez Braun #10</a></td>
+<td class="num">4.82%</td>
+<td class="num">12:31</td>
+<td class="num">4.178</td>
+<td class="diag-exito">Éxito orgánico</td>
+</tr>
+<tr>
+<td>18 de agosto de 2026</td>
+<td class="titulo"><a href="https://youtube.com/watch?v=Sf2MzcFmHAM" target="_blank" rel="noopener">La primera encíclica sobre IA genera CONTROVERSIA | Miguel González</a></td>
+<td class="num">0.96%</td>
+<td class="num">3:48</td>
+<td class="num">424</td>
+<td class="diag-joya">Joya oculta</td>
+</tr>
+<tr>
+<td>6 de agosto de 2026</td>
+<td class="titulo"><a href="https://youtube.com/watch?v=3hoE4Q5exMc" target="_blank" rel="noopener">El ESTADO como lo conocemos podría DESAPARECER | Álvaro de María</a></td>
+<td class="num">1.09%</td>
+<td class="num">1:28</td>
+<td class="num">162</td>
+<td class="diag-sintiron">Sin tirón</td>
+</tr>
+<tr>
+<td>4 de agosto de 2026</td>
+<td class="titulo"><a href="https://youtube.com/watch?v=kydnnUVJO54" target="_blank" rel="noopener">La COMPUTACIÓN CUÁNTICA NO destruirá Bitcoin | Álvaro de María</a></td>
+<td class="num">1.2%</td>
+<td class="num">3:33</td>
+<td class="num">136</td>
+<td class="diag-joya">Joya oculta</td>
+</tr>
+<tr>
+<td>2 de agosto de 2026</td>
+<td class="titulo"><a href="https://youtube.com/watch?v=RV_wVq7ODGE" target="_blank" rel="noopener">¿Realmente eres DUEÑO de tus BITCOIN? | Álvaro de María</a></td>
+<td class="num">1.61%</td>
+<td class="num">3:05</td>
+<td class="num">113</td>
+<td class="diag-joya">Joya oculta</td>
+</tr>
+<tr>
+<td>31 de julio de 2026</td>
+<td class="titulo"><a href="https://youtube.com/watch?v=LTz_lYDZ4IU" target="_blank" rel="noopener">Por fin existe la PROPIEDAD PRIVADA absoluta | Álvaro de María</a></td>
+<td class="num">1.56%</td>
+<td class="num">1:02</td>
+<td class="num">86</td>
+<td class="diag-sintiron">Sin tirón</td>
+</tr>
+<tr>
+<td>28 de julio de 2026</td>
+<td class="titulo"><a href="https://youtube.com/watch?v=67niZ8Vog0c" target="_blank" rel="noopener">BITCOIN NO es dinero, es mucho MÁS | Álvaro de María #9</a></td>
+<td class="num">4.22%</td>
+<td class="num">12:49</td>
+<td class="num">5.234</td>
+<td class="diag-exito">Éxito orgánico</td>
+</tr>
+<tr>
+<td>25 de julio de 2026</td>
+<td class="titulo"><a href="https://youtube.com/watch?v=XKwwsLh1ZYo" target="_blank" rel="noopener">La INMIGRACIÓN y la energía cambiarán el futuro de España | José María Rotellar</a></td>
+<td class="num">1.88%</td>
+<td class="num">1:52</td>
+<td class="num">124</td>
+<td class="diag-sintiron">Sin tirón</td>
+</tr>
+<tr>
+<td>24 de julio de 2026</td>
+<td class="titulo"><a href="https://youtube.com/watch?v=DLOSsmBFyd4" target="_blank" rel="noopener">Cómo crear EMPLEOS con salarios más ALTOS | José María Rotellar</a></td>
+<td class="num">1.65%</td>
+<td class="num">1:21</td>
+<td class="num">100</td>
+<td class="diag-sintiron">Sin tirón</td>
+</tr>
+<tr>
+<td>23 de julio de 2026</td>
+<td class="titulo"><a href="https://youtube.com/watch?v=mKFofWVCUDE" target="_blank" rel="noopener">Las PENSIONES ya NO son sostenibles | José María Rotellar</a></td>
+<td class="num">1.02%</td>
+<td class="num">1:43</td>
+<td class="num">58</td>
+<td class="diag-sintiron">Sin tirón</td>
+</tr>
+<tr>
+<td>22 de julio de 2026</td>
+<td class="titulo"><a href="https://youtube.com/watch?v=oU0t5c0H1Xo" target="_blank" rel="noopener">España necesita un PRESUPUESTO BASE CERO | José María Rotellar</a></td>
+<td class="num">1.25%</td>
+<td class="num">1:50</td>
+<td class="num">68</td>
+<td class="diag-sintiron">Sin tirón</td>
+</tr>
+<tr>
+<td>21 de julio de 2026</td>
+<td class="titulo"><a href="https://youtube.com/watch?v=AQ4aMJ_qqMc" target="_blank" rel="noopener">Las REFORMAS que necesita ESPAÑA para volver a CRECER | José María Rotellar #8</a></td>
+<td class="num">2.34%</td>
+<td class="num">6:23</td>
+<td class="num">239</td>
+<td class="diag-joya">Joya oculta</td>
+</tr>
+<tr>
+<td>7 de julio de 2026</td>
+<td class="titulo"><a href="https://youtube.com/watch?v=Sg_2FlhQUmY" target="_blank" rel="noopener">Las CONSTITUCIONES son pactos entre élites | Eduardo Fernández Luiña</a></td>
+<td class="num">1.67%</td>
+<td class="num">1:42</td>
+<td class="num">123</td>
+<td class="diag-sintiron">Sin tirón</td>
+</tr>
+<tr>
+<td>6 de julio de 2026</td>
+<td class="titulo"><a href="https://youtube.com/watch?v=qXOJbqgEjqA" target="_blank" rel="noopener">El Estado NO existe como te lo imaginas</a></td>
+<td class="num">1.31%</td>
+<td class="num">0:52</td>
+<td class="num">92</td>
+<td class="diag-sintiron">Sin tirón</td>
+</tr>
+<tr>
+<td>3 de julio de 2026</td>
+<td class="titulo"><a href="https://youtube.com/watch?v=bWuLqHtew6M" target="_blank" rel="noopener">La ley que HUNDIÓ las adopciones | Eduardo Fernández Luiña</a></td>
+<td class="num">1.35%</td>
+<td class="num">1:32</td>
+<td class="num">85</td>
+<td class="diag-sintiron">Sin tirón</td>
+</tr>
+<tr>
+<td>2 de julio de 2026</td>
+<td class="titulo"><a href="https://youtube.com/watch?v=dnRdVJpmsH4" target="_blank" rel="noopener">La política NO funciona como TE CONTARON | Eduardo Fernández Luiña</a></td>
+<td class="num">1.43%</td>
+<td class="num">1:17</td>
+<td class="num">85</td>
+<td class="diag-sintiron">Sin tirón</td>
+</tr>
+<tr>
+<td>1 de julio de 2026</td>
+<td class="titulo"><a href="https://youtube.com/watch?v=CkxThza8xok" target="_blank" rel="noopener">Así FUNCIONA realmente el PODER POLÍTICO | Eduardo Fernández Luiña #7</a></td>
+<td class="num">2.73%</td>
+<td class="num">8:19</td>
+<td class="num">307</td>
+<td class="diag-exito">Éxito orgánico</td>
+</tr>
+<tr>
+<td>20 de junio de 2026</td>
+<td class="titulo"><a href="https://youtube.com/watch?v=w_GZquRQaLo" target="_blank" rel="noopener">El modelo educativo que la IA NO puede reemplazar | Arturo Fabra</a></td>
+<td class="num">1.24%</td>
+<td class="num">1:41</td>
+<td class="num">91</td>
+<td class="diag-sintiron">Sin tirón</td>
+</tr>
+<tr>
+<td>19 de junio de 2026</td>
+<td class="titulo"><a href="https://youtube.com/watch?v=HSEFCs48TmA" target="_blank" rel="noopener">La IA está DESTRUYENDO el modelo educativo tradicional | Arturo Fabra</a></td>
+<td class="num">1.55%</td>
+<td class="num">1:35</td>
+<td class="num">81</td>
+<td class="diag-sintiron">Sin tirón</td>
+</tr>
+<tr>
+<td>18 de junio de 2026</td>
+<td class="titulo"><a href="https://youtube.com/watch?v=44ynEdtTrIk" target="_blank" rel="noopener">España tiene el sistema universitario HIPERREGULADO | Arturo Fabra</a></td>
+<td class="num">1.68%</td>
+<td class="num">1:14</td>
+<td class="num">97</td>
+<td class="diag-sintiron">Sin tirón</td>
+</tr>
+<tr>
+<td>17 de junio de 2026</td>
+<td class="titulo"><a href="https://youtube.com/watch?v=j57RDsIK7qQ" target="_blank" rel="noopener">“No me podía creer que esta universidad existiera” | Arturo Fabra</a></td>
+<td class="num">1.28%</td>
+<td class="num">1:35</td>
+<td class="num">67</td>
+<td class="diag-sintiron">Sin tirón</td>
+</tr>
+<tr>
+<td>16 de junio de 2026</td>
+<td class="titulo"><a href="https://youtube.com/watch?v=BpRgqApM_CU" target="_blank" rel="noopener">La universidad tradicional está MURIENDO | Arturo Fabra #6</a></td>
+<td class="num">2.33%</td>
+<td class="num">7:25</td>
+<td class="num">311</td>
+<td class="diag-joya">Joya oculta</td>
+</tr>
+<tr>
+<td>13 de junio de 2026</td>
+<td class="titulo"><a href="https://youtube.com/watch?v=U64HdkvBwaM" target="_blank" rel="noopener">¿Vale la pena trabajar en banca privada en el futuro? | Pedro Marín</a></td>
+<td class="num">1.61%</td>
+<td class="num">1:46</td>
+<td class="num">100</td>
+<td class="diag-sintiron">Sin tirón</td>
+</tr>
+<tr>
+<td>12 de junio de 2026</td>
+<td class="titulo"><a href="https://youtube.com/watch?v=MrT0_mbYA3U" target="_blank" rel="noopener">¿Por qué el VALUE INVESTING vuelve a ser CLAVE? | Pedro Marín</a></td>
+<td class="num">1.11%</td>
+<td class="num">1:33</td>
+<td class="num">64</td>
+<td class="diag-sintiron">Sin tirón</td>
+</tr>
+<tr>
+<td>11 de junio de 2026</td>
+<td class="titulo"><a href="https://youtube.com/watch?v=Vx-a7P-p9bk" target="_blank" rel="noopener">Capitalismo y libre mercado NO son lo mismo | Andrés Caramés</a></td>
+<td class="num">2.6%</td>
+<td class="num">2:33</td>
+<td class="num">173</td>
+<td class="diag-promesa">Promesa incumplida</td>
+</tr>
+<tr>
+<td>11 de junio de 2026</td>
+<td class="titulo"><a href="https://youtube.com/watch?v=EaC_G13JYNU" target="_blank" rel="noopener">Así invierte SU PATRIMONIO un banquero privado | Pedro Marín</a></td>
+<td class="num">1.62%</td>
+<td class="num">2:14</td>
+<td class="num">88</td>
+<td class="diag-sintiron">Sin tirón</td>
+</tr>
+<tr>
+<td>10 de junio de 2026</td>
+<td class="titulo"><a href="https://youtube.com/watch?v=ZV43pM2kJ6A" target="_blank" rel="noopener">La inflación está DESTRUYENDO a la clase media | Pedro Marín</a></td>
+<td class="num">1.21%</td>
+<td class="num">1:40</td>
+<td class="num">80</td>
+<td class="diag-sintiron">Sin tirón</td>
+</tr>
+<tr>
+<td>9 de junio de 2026</td>
+<td class="titulo"><a href="https://youtube.com/watch?v=RwpslSlMgOQ" target="_blank" rel="noopener">Estamos entrando en un NUEVO ciclo económico | Pedro Marín</a></td>
+<td class="num">1.75%</td>
+<td class="num">1:54</td>
+<td class="num">83</td>
+<td class="diag-sintiron">Sin tirón</td>
+</tr>
+<tr>
+<td>8 de junio de 2026</td>
+<td class="titulo"><a href="https://youtube.com/watch?v=apJmj4eC6-g" target="_blank" rel="noopener">La BANCA PRIVADA está cambiando para siempre | Pedro Marín  #5</a></td>
+<td class="num">2.65%</td>
+<td class="num">7:59</td>
+<td class="num">509</td>
+<td class="diag-exito">Éxito orgánico</td>
+</tr>
+<tr>
+<td>7 de junio de 2026</td>
+<td class="titulo"><a href="https://youtube.com/watch?v=Xxm4a8c80_Y" target="_blank" rel="noopener">España NO está condenada al fracaso | José María Rotellar  #shorts</a></td>
+<td class="num">3.23%</td>
+<td class="num">0:28</td>
+<td class="num">942</td>
+<td class="diag-promesa">Promesa incumplida</td>
+</tr>
+<tr>
+<td>6 de junio de 2026</td>
+<td class="titulo"><a href="https://youtube.com/watch?v=Z2jjyZ7J2zw" target="_blank" rel="noopener">España NO está condenada al fracaso | José María Rotellar  #shorts</a></td>
+<td class="num">3.26%</td>
+<td class="num">0:37</td>
+<td class="num">824</td>
+<td class="diag-promesa">Promesa incumplida</td>
+</tr>
+<tr>
+<td>6 de junio de 2026</td>
+<td class="titulo"><a href="https://youtube.com/watch?v=MaZFaKedHIQ" target="_blank" rel="noopener">¿Europa está PERDIENDO su libertad? | Juan Pina</a></td>
+<td class="num">1.84%</td>
+<td class="num">1:47</td>
+<td class="num">134</td>
+<td class="diag-sintiron">Sin tirón</td>
+</tr>
+<tr>
+<td>6 de junio de 2026</td>
+<td class="titulo"><a href="https://youtube.com/watch?v=Ek2nXR0909k" target="_blank" rel="noopener">La IA, las PENSIONES y el FUTURO de España | José María Rotellar</a></td>
+<td class="num">1.88%</td>
+<td class="num">1:05</td>
+<td class="num">131</td>
+<td class="diag-sintiron">Sin tirón</td>
+</tr>
+<tr>
+<td>5 de junio de 2026</td>
+<td class="titulo"><a href="https://youtube.com/watch?v=j4YxZ38cSRg" target="_blank" rel="noopener">El Estado se está gastando TODO el dinero | José María Rotellar  #shorts</a></td>
+<td class="num">2.34%</td>
+<td class="num">0:32</td>
+<td class="num">1.040</td>
+<td class="diag-sintiron">Sin tirón</td>
+</tr>
+<tr>
+<td>5 de junio de 2026</td>
+<td class="titulo"><a href="https://youtube.com/watch?v=Sxsd5eRxgNI" target="_blank" rel="noopener">España se está convirtiendo en una economía SUBSIDIADA | José María Rotellar</a></td>
+<td class="num">3.1%</td>
+<td class="num">1:25</td>
+<td class="num">186</td>
+<td class="diag-promesa">Promesa incumplida</td>
+</tr>
+<tr>
+<td>4 de junio de 2026</td>
+<td class="titulo"><a href="https://youtube.com/watch?v=VbRBGigUPYk" target="_blank" rel="noopener">Las cuatro REFORMAS que necesita ESPAÑA para evitar el COLAPSO económico | José María Rotellar</a></td>
+<td class="num">2.68%</td>
+<td class="num">1:28</td>
+<td class="num">198</td>
+<td class="diag-promesa">Promesa incumplida</td>
+</tr>
+<tr>
+<td>3 de junio de 2026</td>
+<td class="titulo"><a href="https://youtube.com/watch?v=8uFspxjwvX8" target="_blank" rel="noopener">La economía española está «ANESTESIADA» y puede TERMINAR MUY MAL | José María Rotellar #4</a></td>
+<td class="num">2.32%</td>
+<td class="num">5:03</td>
+<td class="num">262</td>
+<td class="diag-joya">Joya oculta</td>
+</tr>
+<tr>
+<td>1 de junio de 2026</td>
+<td class="titulo"><a href="https://youtube.com/watch?v=RzhvCZzLj98" target="_blank" rel="noopener">¿Es OCCIDENTE cada vez menos LIBRE? | Tom Palmer</a></td>
+<td class="num">1.31%</td>
+<td class="num">0:59</td>
+<td class="num">103</td>
+<td class="diag-sintiron">Sin tirón</td>
+</tr>
+<tr>
+<td>27 de mayo de 2026</td>
+<td class="titulo"><a href="https://youtube.com/watch?v=EMaUam3seyI" target="_blank" rel="noopener">España tiene el PEOR sistema fiscal del mundo | Marc Urgell</a></td>
+<td class="num">2.84%</td>
+<td class="num">2:08</td>
+<td class="num">251</td>
+<td class="diag-promesa">Promesa incumplida</td>
+</tr>
+<tr>
+<td>20 de mayo de 2026</td>
+<td class="titulo"><a href="https://youtube.com/watch?v=pRAV1cMAKJQ" target="_blank" rel="noopener">Economía mundial 2026: las TENDENCIAS que pueden cambiarlo TODO | Daniel Lacalle</a></td>
+<td class="num">3.95%</td>
+<td class="num">5:00</td>
+<td class="num">897</td>
+<td class="diag-exito">Éxito orgánico</td>
+</tr>
+<tr>
+<td>10 de mayo de 2026</td>
+<td class="titulo"><a href="https://youtube.com/watch?v=32Z3ldRmo5w" target="_blank" rel="noopener">Esto NO encaja en el FINAL de EPSTEIN | Julio César Ruiz</a></td>
+<td class="num">1.56%</td>
+<td class="num">1:33</td>
+<td class="num">315</td>
+<td class="diag-sintiron">Sin tirón</td>
+</tr>
+<tr>
+<td>9 de mayo de 2026</td>
+<td class="titulo"><a href="https://youtube.com/watch?v=kb5c6dkN6og" target="_blank" rel="noopener">Por qué NADIE frenó a EPSTEIN durante años  | Julio César Ruiz</a></td>
+<td class="num">2.16%</td>
+<td class="num">1:59</td>
+<td class="num">620</td>
+<td class="diag-sintiron">Sin tirón</td>
+</tr>
+<tr>
+<td>8 de mayo de 2026</td>
+<td class="titulo"><a href="https://youtube.com/watch?v=VCm-VeeDeB8" target="_blank" rel="noopener">La PISTA que conecta a EPSTEIN con ESPAÑA | Julio César Ruiz</a></td>
+<td class="num">1.34%</td>
+<td class="num">1:35</td>
+<td class="num">137</td>
+<td class="diag-sintiron">Sin tirón</td>
+</tr>
+<tr>
+<td>7 de mayo de 2026</td>
+<td class="titulo"><a href="https://youtube.com/watch?v=WNGaScF83y0" target="_blank" rel="noopener">Así EPSTEIN construyó una RED que nadie pudo parar  | Julio César Ruiz</a></td>
+<td class="num">1.32%</td>
+<td class="num">1:39</td>
+<td class="num">89</td>
+<td class="diag-sintiron">Sin tirón</td>
+</tr>
+<tr>
+<td>6 de mayo de 2026</td>
+<td class="titulo"><a href="https://youtube.com/watch?v=zZ-eRU_QBGU" target="_blank" rel="noopener">EPSTEIN y los DOCUMENTOS que apuntan a ESPAÑA | La Casa Vacía x Libertad TV - Julio César Ruiz</a></td>
+<td class="num">1.08%</td>
+<td class="num">4:08</td>
+<td class="num">160</td>
+<td class="diag-joya">Joya oculta</td>
+</tr>
+<tr>
+<td>5 de mayo de 2026</td>
+<td class="titulo"><a href="https://youtube.com/watch?v=Cl_Lrahzj7o" target="_blank" rel="noopener">La EPIDEMIA de SOLEDAD es REVERSIBLE | Alejandro de León #3</a></td>
+<td class="num">1.38%</td>
+<td class="num">1:16</td>
+<td class="num">164</td>
+<td class="diag-sintiron">Sin tirón</td>
+</tr>
+<tr>
+<td>4 de mayo de 2026</td>
+<td class="titulo"><a href="https://youtube.com/watch?v=EanFuwULCbo" target="_blank" rel="noopener">¿El PROGRESO TECNOLÓGICO puede DESTRUIRNOS? | Alejandro de León #3</a></td>
+<td class="num">0.93%</td>
+<td class="num">2:01</td>
+<td class="num">67</td>
+<td class="diag-sintiron">Sin tirón</td>
+</tr>
+<tr>
+<td>3 de mayo de 2026</td>
+<td class="titulo"><a href="https://youtube.com/watch?v=8WZRKTGO7V0" target="_blank" rel="noopener">El LIBRE MERCADO es la DEMOCRACIA que SÍ FUNCIONA | Alejandro de León #3</a></td>
+<td class="num">1.3%</td>
+<td class="num">2:04</td>
+<td class="num">91</td>
+<td class="diag-sintiron">Sin tirón</td>
+</tr>
+<tr>
+<td>2 de mayo de 2026</td>
+<td class="titulo"><a href="https://youtube.com/watch?v=aN6670EuA5g" target="_blank" rel="noopener">El capitalismo YA ES SOCIAL | Alejandro de León #3</a></td>
+<td class="num">0.68%</td>
+<td class="num">2:04</td>
+<td class="num">99</td>
+<td class="diag-sintiron">Sin tirón</td>
+</tr>
+<tr>
+<td>1 de mayo de 2026</td>
+<td class="titulo"><a href="https://youtube.com/watch?v=VINp9Fj3X7o" target="_blank" rel="noopener">CAPITALISMO: El sistema que MÁS BENEFICIA a los POBRES | Alejandro de León #3</a></td>
+<td class="num">2.73%</td>
+<td class="num">7:35</td>
+<td class="num">399</td>
+<td class="diag-exito">Éxito orgánico</td>
+</tr>
+<tr>
+<td>29 de abril de 2026</td>
+<td class="titulo"><a href="https://youtube.com/watch?v=tF4ATp0dCW4" target="_blank" rel="noopener">¿Está creando la IA una EPIDEMIA de SOLEDAD? | Carlos Pitillas</a></td>
+<td class="num">1.08%</td>
+<td class="num">1:23</td>
+<td class="num">76</td>
+<td class="diag-sintiron">Sin tirón</td>
+</tr>
+<tr>
+<td>28 de abril de 2026</td>
+<td class="titulo"><a href="https://youtube.com/watch?v=l4IsnLjI8Co" target="_blank" rel="noopener">La GRAN MENTIRA de la SALUD MENTAL moderna | Carlos Pitillas</a></td>
+<td class="num">2.68%</td>
+<td class="num">2:23</td>
+<td class="num">201</td>
+<td class="diag-promesa">Promesa incumplida</td>
+</tr>
+<tr>
+<td>27 de abril de 2026</td>
+<td class="titulo"><a href="https://youtube.com/watch?v=ioVgrlyxWwE" target="_blank" rel="noopener">Así PREDIJO Freud el POPULISMO MODERNO | Carlos Pitillas</a></td>
+<td class="num">1.57%</td>
+<td class="num">1:44</td>
+<td class="num">134</td>
+<td class="diag-sintiron">Sin tirón</td>
+</tr>
+<tr>
+<td>26 de abril de 2026</td>
+<td class="titulo"><a href="https://youtube.com/watch?v=G9r3UPWy98Y" target="_blank" rel="noopener">FREUD predijo la CRISIS del ser humano moderno | La Casa Vacía x Libertad TV - Carlos Pitillas</a></td>
+<td class="num">1.63%</td>
+<td class="num">5:23</td>
+<td class="num">267</td>
+<td class="diag-joya">Joya oculta</td>
+</tr>
+<tr>
+<td>25 de abril de 2026</td>
+<td class="titulo"><a href="https://youtube.com/watch?v=voOhLFG7Lu0" target="_blank" rel="noopener">PROTEGE tus AHORROS con ORO y BITCOIN ANTES de que sea TARDE | Gustavo Martínez #2</a></td>
+<td class="num">3.08%</td>
+<td class="num">2:57</td>
+<td class="num">336</td>
+<td class="diag-promesa">Promesa incumplida</td>
+</tr>
+<tr>
+<td>24 de abril de 2026</td>
+<td class="titulo"><a href="https://youtube.com/watch?v=hc7Aekw4AJU" target="_blank" rel="noopener">NO INVIERTAS en MINERAS de ORO sin antes SABER ESTO | Gustavo Martínez #2</a></td>
+<td class="num">4.75%</td>
+<td class="num">3:07</td>
+<td class="num">662</td>
+<td class="diag-exito">Éxito orgánico</td>
+</tr>
+<tr>
+<td>23 de abril de 2026</td>
+<td class="titulo"><a href="https://youtube.com/watch?v=1DFT2JhEDHQ" target="_blank" rel="noopener">Así es como el SOCIALISMO te EMPOBRECE poco a poco | Gustavo Martínez #2</a></td>
+<td class="num">1.4%</td>
+<td class="num">1:30</td>
+<td class="num">177</td>
+<td class="diag-sintiron">Sin tirón</td>
+</tr>
+<tr>
+<td>21 de abril de 2026</td>
+<td class="titulo"><a href="https://youtube.com/watch?v=5t08BCGiNSM" target="_blank" rel="noopener">Los BANCOS CENTRALES se preparan para el cambio de CICLO MONETARIO | Gustavo Martínez #2</a></td>
+<td class="num">6.2%</td>
+<td class="num">3:04</td>
+<td class="num">2.472</td>
+<td class="diag-exito">Éxito orgánico</td>
+</tr>
+<tr>
+<td>19 de abril de 2026</td>
+<td class="titulo"><a href="https://youtube.com/watch?v=muaq7HfZEMg" target="_blank" rel="noopener">La VERDAD que NADIE quiere ESCUCHAR, ORO y el COLAPSO DEL DINERO FIAT | Gustavo Martínez #2</a></td>
+<td class="num">6.33%</td>
+<td class="num">4:21</td>
+<td class="num">2.028</td>
+<td class="diag-exito">Éxito orgánico</td>
+</tr>
+<tr>
+<td>17 de abril de 2026</td>
+<td class="titulo"><a href="https://youtube.com/watch?v=Ds25mfzqur8" target="_blank" rel="noopener">La MEJOR INVERSIÓN para proteger tu dinero del ROBO de la INFLACIÓN | GUSTAVO MARTÍNEZ #2</a></td>
+<td class="num">7.84%</td>
+<td class="num">10:52</td>
+<td class="num">12.725</td>
+<td class="diag-exito">Éxito orgánico</td>
+</tr>
+<tr>
+<td>15 de abril de 2026</td>
+<td class="titulo"><a href="https://youtube.com/watch?v=2vuCZzxp-gg" target="_blank" rel="noopener">TRUMP y MILEI son POLOS OPUESTOS | Philipp Bagus</a></td>
+<td class="num">1.33%</td>
+<td class="num">1:37</td>
+<td class="num">117</td>
+<td class="diag-sintiron">Sin tirón</td>
+</tr>
+<tr>
+<td>13 de abril de 2026</td>
+<td class="titulo"><a href="https://youtube.com/watch?v=vb5QSyCf8e0" target="_blank" rel="noopener">ESTO significa SER un VERDADERO LIBERTARIO | Philipp Bagus</a></td>
+<td class="num">2.01%</td>
+<td class="num">4:00</td>
+<td class="num">236</td>
+<td class="diag-joya">Joya oculta</td>
+</tr>
+<tr>
+<td>11 de abril de 2026</td>
+<td class="titulo"><a href="https://youtube.com/watch?v=zYbenp1KPnc" target="_blank" rel="noopener">¿EL CAPITALISMO PERDIÓ la BATALLA CULTURAL? | Philipp Bagus</a></td>
+<td class="num">1.45%</td>
+<td class="num">2:19</td>
+<td class="num">187</td>
+<td class="diag-sintiron">Sin tirón</td>
+</tr>
+<tr>
+<td>9 de abril de 2026</td>
+<td class="titulo"><a href="https://youtube.com/watch?v=jrrXMo58tA0" target="_blank" rel="noopener">POR QUÉ el SISTEMA te NECESITA POBRE | Philipp Bagus</a></td>
+<td class="num">1.87%</td>
+<td class="num">2:32</td>
+<td class="num">227</td>
+<td class="diag-sintiron">Sin tirón</td>
+</tr>
+<tr>
+<td>7 de abril de 2026</td>
+<td class="titulo"><a href="https://youtube.com/watch?v=m-sssSQay7I" target="_blank" rel="noopener">La era MILEI: libertad, CAPITALISMO y batalla cultural | Philipp BAGUS - La Casa Vacía x Libertad TV</a></td>
+<td class="num">1.87%</td>
+<td class="num">4:44</td>
+<td class="num">593</td>
+<td class="diag-joya">Joya oculta</td>
+</tr>
+<tr>
+<td>5 de abril de 2026</td>
+<td class="titulo"><a href="https://youtube.com/watch?v=TREOioeyEfE" target="_blank" rel="noopener">Por qué la EDUCACIÓN financiera NO debería enseñarse en los colegios | DOMINGO SORIANO #1</a></td>
+<td class="num">4.29%</td>
+<td class="num">2:34</td>
+<td class="num">944</td>
+<td class="diag-promesa">Promesa incumplida</td>
+</tr>
+<tr>
+<td>3 de abril de 2026</td>
+<td class="titulo"><a href="https://youtube.com/watch?v=TqDkUvSpjGE" target="_blank" rel="noopener">Dinfudir las IDEAS de la LIBERTAD a través de la EDUCACIÓN FINANCIERA | DOMINGO SORIANO #1</a></td>
+<td class="num">1.03%</td>
+<td class="num">1:41</td>
+<td class="num">131</td>
+<td class="diag-sintiron">Sin tirón</td>
+</tr>
+<tr>
+<td>1 de abril de 2026</td>
+<td class="titulo"><a href="https://youtube.com/watch?v=rlkmNGfL5gU" target="_blank" rel="noopener">¿Cuál es la CARTERA de inversión IDEAL? | DOMINGO SORIANO #1</a></td>
+<td class="num">3.24%</td>
+<td class="num">5:16</td>
+<td class="num">396</td>
+<td class="diag-exito">Éxito orgánico</td>
+</tr>
+<tr>
+<td>30 de marzo de 2026</td>
+<td class="titulo"><a href="https://youtube.com/watch?v=hbwH1tYZX_4" target="_blank" rel="noopener">¿Tiene tesis de inversión EUROPA? | DOMINGO SORIANO #1</a></td>
+<td class="num">0.87%</td>
+<td class="num">1:50</td>
+<td class="num">84</td>
+<td class="diag-sintiron">Sin tirón</td>
+</tr>
+<tr>
+<td>28 de marzo de 2026</td>
+<td class="titulo"><a href="https://youtube.com/watch?v=2KiAIIpGuIY" target="_blank" rel="noopener">¿Estamos ante una posible GRAN DEPRESIÓN? | Domingo Soriano #1</a></td>
+<td class="num">1.76%</td>
+<td class="num">0:34</td>
+<td class="num">1.344</td>
+<td class="diag-sintiron">Sin tirón</td>
+</tr>
+<tr>
+<td>28 de marzo de 2026</td>
+<td class="titulo"><a href="https://youtube.com/watch?v=D_CDsyi9-0k" target="_blank" rel="noopener">¿Se ha ROTO la relación entre la ECONOMÍA y la BOLSA? | DOMINGO SORIANO #1</a></td>
+<td class="num">2.03%</td>
+<td class="num">4:16</td>
+<td class="num">273</td>
+<td class="diag-joya">Joya oculta</td>
+</tr>
+<tr>
+<td>27 de marzo de 2026</td>
+<td class="titulo"><a href="https://youtube.com/watch?v=r-4tc2PwvHQ" target="_blank" rel="noopener">La EDUCACIÓN financiera en los colegios NO sirve | Domingo Soriano #1</a></td>
+<td class="num">2.42%</td>
+<td class="num">0:40</td>
+<td class="num">1.011</td>
+<td class="diag-sintiron">Sin tirón</td>
+</tr>
+<tr>
+<td>26 de marzo de 2026</td>
+<td class="titulo"><a href="https://youtube.com/watch?v=UCqKDlHDsnE" target="_blank" rel="noopener">Si queremos LIBERALES, necesitamos una sociedad de PROPIETARIOS | DOMINGO SORIANO #1</a></td>
+<td class="num">4.38%</td>
+<td class="num">12:12</td>
+<td class="num">1.103</td>
+<td class="diag-exito">Éxito orgánico</td>
+</tr>
+<tr>
+<td>24 de marzo de 2026</td>
+<td class="titulo"><a href="https://youtube.com/watch?v=Io3NUqXimSk" target="_blank" rel="noopener">Educar sin MANIPULAR: la regla que todos los padres deberían conocer | La Casa Vacía x Libertad TV</a></td>
+<td class="num">1.52%</td>
+<td class="num">2:35</td>
+<td class="num">120</td>
+<td class="diag-sintiron">Sin tirón</td>
+</tr>
+<tr>
+<td>22 de marzo de 2026</td>
+<td class="titulo"><a href="https://youtube.com/watch?v=AlHtBqicar4" target="_blank" rel="noopener">Si no tienes amigos, ¿quién te cuidará? La respuesta te sorprenderá | La Casa Vacía x Libertad TV</a></td>
+<td class="num">0.9%</td>
+<td class="num">2:26</td>
+<td class="num">301</td>
+<td class="diag-sintiron">Sin tirón</td>
+</tr>
+<tr>
+<td>20 de marzo de 2026</td>
+<td class="titulo"><a href="https://youtube.com/watch?v=5XJG7mhWWcc" target="_blank" rel="noopener">¡Esta DEFINICIÓN de JUVENTUD te SORPRENDERÁ!</a></td>
+<td class="num">1.64%</td>
+<td class="num">0:24</td>
+<td class="num">651</td>
+<td class="diag-sintiron">Sin tirón</td>
+</tr>
+<tr>
+<td>20 de marzo de 2026</td>
+<td class="titulo"><a href="https://youtube.com/watch?v=mpfjWYRpd4Y" target="_blank" rel="noopener">La FILOSOFÍA no es contemplación, es PRÁCTICA | Antonio Lastra en La Casa Vacía x Libertad TV</a></td>
+<td class="num">1.48%</td>
+<td class="num">2:18</td>
+<td class="num">368</td>
+<td class="diag-sintiron">Sin tirón</td>
+</tr>
+<tr>
+<td>19 de marzo de 2026</td>
+<td class="titulo"><a href="https://youtube.com/watch?v=dZVHMzAXV5U" target="_blank" rel="noopener">¿CUERPO y MENTE envejecen por igual?</a></td>
+<td class="num">2.58%</td>
+<td class="num">1:32</td>
+<td class="num">1.445</td>
+<td class="diag-promesa">Promesa incumplida</td>
+</tr>
+<tr>
+<td>18 de marzo de 2026</td>
+<td class="titulo"><a href="https://youtube.com/watch?v=zs0XY8wmOsc" target="_blank" rel="noopener">La sorprendente lección de PLATÓN que cambiará tu FORMA DE VIVIR | La Casa Vacía x Libertad TV</a></td>
+<td class="num">1.33%</td>
+<td class="num">2:19</td>
+<td class="num">173</td>
+<td class="diag-sintiron">Sin tirón</td>
+</tr>
+<tr>
+<td>17 de marzo de 2026</td>
+<td class="titulo"><a href="https://youtube.com/watch?v=yIeeLZnwLIE" target="_blank" rel="noopener">Tu TIEMPO LIBRE define quién eres | Podcast La Casa Vacía x Libertad TV</a></td>
+<td class="num">5.59%</td>
+<td class="num">0:43</td>
+<td class="num">3.019</td>
+<td class="diag-promesa">Promesa incumplida</td>
+</tr>
+<tr>
+<td>16 de marzo de 2026</td>
+<td class="titulo"><a href="https://youtube.com/watch?v=A9wbOlp9dRg" target="_blank" rel="noopener">De Platón a Thoreau: Una reflexión sobre si debemos volver a la plaza | La Casa Vacía x Libertad TV</a></td>
+<td class="num">6.24%</td>
+<td class="num">14:27</td>
+<td class="num">1.742</td>
+<td class="diag-exito">Éxito orgánico</td>
+</tr>
+<tr>
+<td>13 de marzo de 2026</td>
+<td class="titulo"><a href="https://youtube.com/watch?v=yXdgpj6T7ZA" target="_blank" rel="noopener">Comienza una nueva etapa: Libertad TV x UFM</a></td>
+<td class="num">1.95%</td>
+<td class="num">1:02</td>
+<td class="num">312</td>
+<td class="diag-sintiron">Sin tirón</td>
+</tr>
+<tr>
+<td>24 de febrero de 2026</td>
+<td class="titulo"><a href="https://youtube.com/watch?v=oi7vmCt-Yfg" target="_blank" rel="noopener">La COMPETENCIA es el motor del BIENESTAR | JUAN RAMÓN RALLO lo explica.</a></td>
+<td class="num">3.86%</td>
+<td class="num">7:23</td>
+<td class="num">1.404</td>
+<td class="diag-exito">Éxito orgánico</td>
+</tr>
+<tr>
+<td>15 de febrero de 2026</td>
+<td class="titulo"><a href="https://youtube.com/watch?v=m7WpU28PR7o" target="_blank" rel="noopener">La CONFIANZA es la base del SISTEMA POLÍTICO | Doctor en Ciencias Políticas lo expone.</a></td>
+<td class="num">1.75%</td>
+<td class="num">3:24</td>
+<td class="num">428</td>
+<td class="diag-joya">Joya oculta</td>
+</tr>
+<tr>
+<td>6 de febrero de 2026</td>
+<td class="titulo"><a href="https://youtube.com/watch?v=Kyj7ihpQuXc" target="_blank" rel="noopener">¿Cómo diseñar un buen SISTEMA ECONÓMICO? JUAN RAMÓN RALLO responde.</a></td>
+<td class="num">4.01%</td>
+<td class="num">5:34</td>
+<td class="num">8.705</td>
+<td class="diag-exito">Éxito orgánico</td>
+</tr>
+</table>
+</div>
+
+<h2>Shorts</h2>
+<p class="h2-sub">122 vídeos · "alto" = CTR &gt;3,5% · Retención &gt;65%</p>
+<div class="stats">
+<div class="stat"><div class="stat-n">11</div><div class="stat-l">Éxito orgánico</div></div>
+<div class="stat"><div class="stat-n">31</div><div class="stat-l">Joya oculta</div></div>
+<div class="stat"><div class="stat-n">22</div><div class="stat-l">Promesa incumplida</div></div>
+<div class="stat"><div class="stat-n">58</div><div class="stat-l">Sin tirón</div></div>
+</div>
+<div class="tabla-wrap">
+<table>
+<tr><th>Fecha</th><th>Título</th><th>CTR</th><th>Retención</th><th>Vistas</th><th>Diagnóstico</th></tr>
+<tr>
+<td>2 de septiembre de 2026</td>
+<td class="titulo"><a href="https://youtube.com/watch?v=wPPuZVLAYDM" target="_blank" rel="noopener">El plan de MILEI funciona gracias a la ESCUELA AUSTRÍACA | Iván Carrino</a></td>
+<td class="num">3.57%</td>
+<td class="num">54.8%</td>
+<td class="num">1.247</td>
+<td class="diag-promesa">Promesa incumplida</td>
+</tr>
+<tr>
+<td>1 de septiembre de 2026</td>
+<td class="titulo"><a href="https://youtube.com/watch?v=Nbmmo1JjtcY" target="_blank" rel="noopener">MILEI: el primer presidente ANARCOCAPITALISTA de la historia | Iván Carrino #shorts</a></td>
+<td class="num">5.57%</td>
+<td class="num">71.4%</td>
+<td class="num">1.552</td>
+<td class="diag-exito">Éxito orgánico</td>
+</tr>
+<tr>
+<td>29 de agosto de 2026</td>
+<td class="titulo"><a href="https://youtube.com/watch?v=NUxu-Y1pVlc" target="_blank" rel="noopener">La gran MENTIRA sobre el ESTADO | Carlos Rodríguez Braun #shorts</a></td>
+<td class="num">5.36%</td>
+<td class="num">80.0%</td>
+<td class="num">2.477</td>
+<td class="diag-exito">Éxito orgánico</td>
+</tr>
+<tr>
+<td>28 de agosto de 2026</td>
+<td class="titulo"><a href="https://youtube.com/watch?v=grbQqVYefd4" target="_blank" rel="noopener">Los 2 acontecimientos más importantes de la HISTORIA | Carlos Rodríguez Braun #shorts</a></td>
+<td class="num">4.96%</td>
+<td class="num">83.0%</td>
+<td class="num">2.570</td>
+<td class="diag-exito">Éxito orgánico</td>
+</tr>
+<tr>
+<td>27 de agosto de 2026</td>
+<td class="titulo"><a href="https://youtube.com/watch?v=QgNFqgH03cc" target="_blank" rel="noopener">El arma MÁS peligrosa del MARXISMO | Carlos Rodríguez Braun #shorts</a></td>
+<td class="num">5.63%</td>
+<td class="num">77.6%</td>
+<td class="num">2.197</td>
+<td class="diag-exito">Éxito orgánico</td>
+</tr>
+<tr>
+<td>25 de agosto de 2026</td>
+<td class="titulo"><a href="https://youtube.com/watch?v=ej2_RA-8Gak" target="_blank" rel="noopener">El SOCIALISMO siempre termina IGUAL | Carlos Rodríguez Braun #shorts</a></td>
+<td class="num">3.98%</td>
+<td class="num">93.9%</td>
+<td class="num">1.663</td>
+<td class="diag-exito">Éxito orgánico</td>
+</tr>
+<tr>
+<td>24 de agosto de 2026</td>
+<td class="titulo"><a href="https://youtube.com/watch?v=xAQ3U3d6RJU" target="_blank" rel="noopener">Por esto unas IDEAS crean PROSPERIDAD y otras DESTRUYEN países | Carlos Rodríguez Braun #10 #shorts</a></td>
+<td class="num">4.3%</td>
+<td class="num">72.0%</td>
+<td class="num">1.039</td>
+<td class="diag-exito">Éxito orgánico</td>
+</tr>
+<tr>
+<td>22 de agosto de 2026</td>
+<td class="titulo"><a href="https://youtube.com/watch?v=E_FhSHTDkTY" target="_blank" rel="noopener">La IA podría cambiar PARA SIEMPRE el reparto de la riqueza | Miguel González #shorts</a></td>
+<td class="num">0.97%</td>
+<td class="num">56.5%</td>
+<td class="num">902</td>
+<td class="diag-sintiron">Sin tirón</td>
+</tr>
+<tr>
+<td>21 de agosto de 2026</td>
+<td class="titulo"><a href="https://youtube.com/watch?v=RPayeCTFMuE" target="_blank" rel="noopener">La IA acabó con la mano invisible | Miguel González #shorts</a></td>
+<td class="num">1.92%</td>
+<td class="num">66.7%</td>
+<td class="num">982</td>
+<td class="diag-joya">Joya oculta</td>
+</tr>
+<tr>
+<td>20 de agosto de 2026</td>
+<td class="titulo"><a href="https://youtube.com/watch?v=YcTZoTnsLcE" target="_blank" rel="noopener">La encíclica sobre IA esconde algo que nadie está contando | Miguel González #shorts</a></td>
+<td class="num">1.37%</td>
+<td class="num">48.6%</td>
+<td class="num">645</td>
+<td class="diag-sintiron">Sin tirón</td>
+</tr>
+<tr>
+<td>19 de agosto de 2026</td>
+<td class="titulo"><a href="https://youtube.com/watch?v=UftY4mBcNQU" target="_blank" rel="noopener">Economía y Progreso ¿Entiende León XIV? | Miguel González #shorts</a></td>
+<td class="num">1.61%</td>
+<td class="num">41.9%</td>
+<td class="num">662</td>
+<td class="diag-sintiron">Sin tirón</td>
+</tr>
+<tr>
+<td>18 de agosto de 2026</td>
+<td class="titulo"><a href="https://youtube.com/watch?v=dfPI0dFPiWY" target="_blank" rel="noopener">¿Y si el Estado es el verdadero causante del desempleo | Miguel González #shorts</a></td>
+<td class="num">2.45%</td>
+<td class="num">64.0%</td>
+<td class="num">345</td>
+<td class="diag-sintiron">Sin tirón</td>
+</tr>
+<tr>
+<td>3 de agosto de 2026</td>
+<td class="titulo"><a href="https://youtube.com/watch?v=YTdvXHwNu2Y" target="_blank" rel="noopener">El Poder de Bitcoin no necesita violencia #shorts</a></td>
+<td class="num">1.35%</td>
+<td class="num">46.9%</td>
+<td class="num">201</td>
+<td class="diag-sintiron">Sin tirón</td>
+</tr>
+<tr>
+<td>2 de agosto de 2026</td>
+<td class="titulo"><a href="https://youtube.com/watch?v=BkDE3yFkxPQ" target="_blank" rel="noopener">Con Bitcoin eres dueño de tu futuro #shorts</a></td>
+<td class="num">1.15%</td>
+<td class="num">74.2%</td>
+<td class="num">1.549</td>
+<td class="diag-joya">Joya oculta</td>
+</tr>
+<tr>
+<td>1 de agosto de 2026</td>
+<td class="titulo"><a href="https://youtube.com/watch?v=VqZEeYcONQE" target="_blank" rel="noopener">Bitcoin es la mayor expresión de propiedad privada #shorts</a></td>
+<td class="num">2.03%</td>
+<td class="num">54.9%</td>
+<td class="num">1.128</td>
+<td class="diag-sintiron">Sin tirón</td>
+</tr>
+<tr>
+<td>31 de julio de 2026</td>
+<td class="titulo"><a href="https://youtube.com/watch?v=V8X0SrzkmxE" target="_blank" rel="noopener">Bitcoin: Libertad Financiera y Herencia Sin Límites #shorts</a></td>
+<td class="num">2.08%</td>
+<td class="num">122.9%</td>
+<td class="num">941</td>
+<td class="diag-joya">Joya oculta</td>
+</tr>
+<tr>
+<td>30 de julio de 2026</td>
+<td class="titulo"><a href="https://youtube.com/watch?v=bz0_1noiEyY" target="_blank" rel="noopener">Bitcoin: Derechos de Propiedad Globales y Seguros #shorts</a></td>
+<td class="num">3.87%</td>
+<td class="num">110.9%</td>
+<td class="num">319</td>
+<td class="diag-exito">Éxito orgánico</td>
+</tr>
+<tr>
+<td>28 de julio de 2026</td>
+<td class="titulo"><a href="https://youtube.com/watch?v=UEFBJNgjWXM" target="_blank" rel="noopener">BITCOIN NO es dinero, es mucho MÁS | Álvaro de María #shorts</a></td>
+<td class="num">1.23%</td>
+<td class="num">46.7%</td>
+<td class="num">159</td>
+<td class="diag-sintiron">Sin tirón</td>
+</tr>
+<tr>
+<td>26 de julio de 2026</td>
+<td class="titulo"><a href="https://youtube.com/watch?v=AUzpxabcVAg" target="_blank" rel="noopener">El problema NO son los inmigrantes | José María Rotellar #shorts</a></td>
+<td class="num">3.68%</td>
+<td class="num">44.2%</td>
+<td class="num">1.158</td>
+<td class="diag-promesa">Promesa incumplida</td>
+</tr>
+<tr>
+<td>25 de julio de 2026</td>
+<td class="titulo"><a href="https://youtube.com/watch?v=dfsLAA6b6k4" target="_blank" rel="noopener">Bajar IMPUESTOS sin bajar el GASTO es un ERROR | José María Rotellar #shorts</a></td>
+<td class="num">4.71%</td>
+<td class="num">48.9%</td>
+<td class="num">1.580</td>
+<td class="diag-promesa">Promesa incumplida</td>
+</tr>
+<tr>
+<td>24 de julio de 2026</td>
+<td class="titulo"><a href="https://youtube.com/watch?v=m2JEKkn0DUI" target="_blank" rel="noopener">Las PENSIONES deben salir de la POLÍTICA | José María Rotellar #shorts</a></td>
+<td class="num">1.84%</td>
+<td class="num">50.0%</td>
+<td class="num">1.371</td>
+<td class="diag-sintiron">Sin tirón</td>
+</tr>
+<tr>
+<td>23 de julio de 2026</td>
+<td class="titulo"><a href="https://youtube.com/watch?v=KhcZd-9CmEQ" target="_blank" rel="noopener">La HIPOCRESÍA española con el FRACKING | José María Rotellar #shorts</a></td>
+<td class="num">3.99%</td>
+<td class="num">48.6%</td>
+<td class="num">1.685</td>
+<td class="diag-promesa">Promesa incumplida</td>
+</tr>
+<tr>
+<td>22 de julio de 2026</td>
+<td class="titulo"><a href="https://youtube.com/watch?v=DEDI994MbfY" target="_blank" rel="noopener">La VIVIENDA es cara por culpa de la burocracia | José María Rotellar #shorts</a></td>
+<td class="num">4.09%</td>
+<td class="num">54.3%</td>
+<td class="num">1.408</td>
+<td class="diag-promesa">Promesa incumplida</td>
+</tr>
+<tr>
+<td>21 de julio de 2026</td>
+<td class="titulo"><a href="https://youtube.com/watch?v=W0idQzTf8d4" target="_blank" rel="noopener">Las REFORMAS que ESPAÑA necesita | José María Rotellar</a></td>
+<td class="num">1.88%</td>
+<td class="num">71.4%</td>
+<td class="num">592</td>
+<td class="diag-joya">Joya oculta</td>
+</tr>
+<tr>
+<td>7 de julio de 2026</td>
+<td class="titulo"><a href="https://youtube.com/watch?v=aI3T4-5t0lY" target="_blank" rel="noopener">El Cortoplacismo Político y sus Riesgos #shorts</a></td>
+<td class="num">2.39%</td>
+<td class="num">58.1%</td>
+<td class="num">569</td>
+<td class="diag-sintiron">Sin tirón</td>
+</tr>
+<tr>
+<td>6 de julio de 2026</td>
+<td class="titulo"><a href="https://youtube.com/watch?v=Bhu7R4QgNro" target="_blank" rel="noopener">La política funciona como un MERCADO | Eduardo Fernández Luiña #shorts</a></td>
+<td class="num">3.05%</td>
+<td class="num">43.8%</td>
+<td class="num">849</td>
+<td class="diag-sintiron">Sin tirón</td>
+</tr>
+<tr>
+<td>5 de julio de 2026</td>
+<td class="titulo"><a href="https://youtube.com/watch?v=SCduaUX3Rng" target="_blank" rel="noopener">La Ley que Une Puritano y Contrabandista #shorts</a></td>
+<td class="num">1.51%</td>
+<td class="num">47.5%</td>
+<td class="num">903</td>
+<td class="diag-sintiron">Sin tirón</td>
+</tr>
+<tr>
+<td>4 de julio de 2026</td>
+<td class="titulo"><a href="https://youtube.com/watch?v=OBbTaXbP_Mc" target="_blank" rel="noopener">Las CONSTITUCIONES son pactos entre élites | Eduardo Fernández Luiña #shorts</a></td>
+<td class="num">1.21%</td>
+<td class="num">54.7%</td>
+<td class="num">1.146</td>
+<td class="diag-sintiron">Sin tirón</td>
+</tr>
+<tr>
+<td>3 de julio de 2026</td>
+<td class="titulo"><a href="https://youtube.com/watch?v=Qdx04nsFzBE" target="_blank" rel="noopener">Las democracias NO son lo que APARENTAN | Eduardo Fernández Luiña #shorts</a></td>
+<td class="num">2.77%</td>
+<td class="num">51.0%</td>
+<td class="num">1.186</td>
+<td class="diag-sintiron">Sin tirón</td>
+</tr>
+<tr>
+<td>2 de julio de 2026</td>
+<td class="titulo"><a href="https://youtube.com/watch?v=3hFBgX-OPXQ" target="_blank" rel="noopener">La sentencia que CAMBIÓ el fútbol para siempre | Eduardo Fernández Luiña  #shorts</a></td>
+<td class="num">2.11%</td>
+<td class="num">74.3%</td>
+<td class="num">2.259</td>
+<td class="diag-joya">Joya oculta</td>
+</tr>
+<tr>
+<td>1 de julio de 2026</td>
+<td class="titulo"><a href="https://youtube.com/watch?v=6bQV9IPQ-IA" target="_blank" rel="noopener">Así FUNCIONA realmente el PODER POLÍTICO | Eduardo Fernández Luiña #shorts</a></td>
+<td class="num">5.36%</td>
+<td class="num">61.2%</td>
+<td class="num">468</td>
+<td class="diag-promesa">Promesa incumplida</td>
+</tr>
+<tr>
+<td>21 de junio de 2026</td>
+<td class="titulo"><a href="https://youtube.com/watch?v=L3TZr6-T0eM" target="_blank" rel="noopener">Así enseñan las mejores universidades del mundo | Arturo Fabra #shorts</a></td>
+<td class="num">1.94%</td>
+<td class="num">65.9%</td>
+<td class="num">1.253</td>
+<td class="diag-joya">Joya oculta</td>
+</tr>
+<tr>
+<td>20 de junio de 2026</td>
+<td class="titulo"><a href="https://youtube.com/watch?v=AmiNk5ptVyc" target="_blank" rel="noopener">Lo que ofrece la UFM NO tiene precio | Arturo Fabra #shorts</a></td>
+<td class="num">1.07%</td>
+<td class="num">36.2%</td>
+<td class="num">454</td>
+<td class="diag-sintiron">Sin tirón</td>
+</tr>
+<tr>
+<td>19 de junio de 2026</td>
+<td class="titulo"><a href="https://youtube.com/watch?v=vkbY7AIBk8w" target="_blank" rel="noopener">Esta universidad RECHAZA dinero del Estado | Arturo Fabra #shorts</a></td>
+<td class="num">1.44%</td>
+<td class="num">75.0%</td>
+<td class="num">1.281</td>
+<td class="diag-joya">Joya oculta</td>
+</tr>
+<tr>
+<td>18 de junio de 2026</td>
+<td class="titulo"><a href="https://youtube.com/watch?v=51kqNISTVrQ" target="_blank" rel="noopener">Prohibir la IA en clase es un ERROR | Arturo Fabra #shorts</a></td>
+<td class="num">2.33%</td>
+<td class="num">68.6%</td>
+<td class="num">1.189</td>
+<td class="diag-joya">Joya oculta</td>
+</tr>
+<tr>
+<td>17 de junio de 2026</td>
+<td class="titulo"><a href="https://youtube.com/watch?v=E6jeKZM3eYU" target="_blank" rel="noopener">La UFM ya integró IA en TODAS sus clases | Arturo Fabra #shorts</a></td>
+<td class="num">1.27%</td>
+<td class="num">50.0%</td>
+<td class="num">1.038</td>
+<td class="diag-sintiron">Sin tirón</td>
+</tr>
+<tr>
+<td>16 de junio de 2026</td>
+<td class="titulo"><a href="https://youtube.com/watch?v=eEaXS5DAs84" target="_blank" rel="noopener">La universidad tradicional está MURIENDO | Arturo Fabra #shorts</a></td>
+<td class="num">4.64%</td>
+<td class="num">50.0%</td>
+<td class="num">144</td>
+<td class="diag-promesa">Promesa incumplida</td>
+</tr>
+<tr>
+<td>15 de junio de 2026</td>
+<td class="titulo"><a href="https://youtube.com/watch?v=uonNbcvAqqQ" target="_blank" rel="noopener">Los pensadores que NADIE recomienda | Andrés Caramés #shorts</a></td>
+<td class="num">6.32%</td>
+<td class="num">54.3%</td>
+<td class="num">844</td>
+<td class="diag-promesa">Promesa incumplida</td>
+</tr>
+<tr>
+<td>14 de junio de 2026</td>
+<td class="titulo"><a href="https://youtube.com/watch?v=Am4mIkHFRL0" target="_blank" rel="noopener">La DISCIPLINA importa más que la motivación | Andrés Caramés #shorts</a></td>
+<td class="num">2.72%</td>
+<td class="num">36.7%</td>
+<td class="num">631</td>
+<td class="diag-sintiron">Sin tirón</td>
+</tr>
+<tr>
+<td>13 de junio de 2026</td>
+<td class="titulo"><a href="https://youtube.com/watch?v=77lAc4CccOo" target="_blank" rel="noopener">La regulación está MATANDO la competencia | Pedro Marín #shorts</a></td>
+<td class="num">1.22%</td>
+<td class="num">64.9%</td>
+<td class="num">818</td>
+<td class="diag-sintiron">Sin tirón</td>
+</tr>
+<tr>
+<td>13 de junio de 2026</td>
+<td class="titulo"><a href="https://youtube.com/watch?v=XZZ4-c26rt0" target="_blank" rel="noopener">La libertad de expresión sigue VIVA en internet | Andrés Caramés  #shorts</a></td>
+<td class="num">4.14%</td>
+<td class="num">42.2%</td>
+<td class="num">550</td>
+<td class="diag-promesa">Promesa incumplida</td>
+</tr>
+<tr>
+<td>12 de junio de 2026</td>
+<td class="titulo"><a href="https://youtube.com/watch?v=x0Z1Ptj3b7s" target="_blank" rel="noopener">“El CAPITALISMO no existiría sin el Estado” | Andrés Caramés #shorts</a></td>
+<td class="num">5.99%</td>
+<td class="num">71.2%</td>
+<td class="num">737</td>
+<td class="diag-exito">Éxito orgánico</td>
+</tr>
+<tr>
+<td>12 de junio de 2026</td>
+<td class="titulo"><a href="https://youtube.com/watch?v=hQGhPUGH9vI" target="_blank" rel="noopener">Así se construye una cartera de inversión INTELIGENTE | Pedro Marín #shorts</a></td>
+<td class="num">1.71%</td>
+<td class="num">72.7%</td>
+<td class="num">715</td>
+<td class="diag-joya">Joya oculta</td>
+</tr>
+<tr>
+<td>11 de junio de 2026</td>
+<td class="titulo"><a href="https://youtube.com/watch?v=weW5eoEgp5Y" target="_blank" rel="noopener">Europa se está AHOGANDO en burocracia | Pedro Marín #shorts</a></td>
+<td class="num">1.74%</td>
+<td class="num">67.7%</td>
+<td class="num">1.660</td>
+<td class="diag-joya">Joya oculta</td>
+</tr>
+<tr>
+<td>11 de junio de 2026</td>
+<td class="titulo"><a href="https://youtube.com/watch?v=8Vn94vWISk8" target="_blank" rel="noopener">La GUERRA IDEOLÓGICA ya comenzó | Andrés Caramés  #shorts</a></td>
+<td class="num">3.34%</td>
+<td class="num">50.0%</td>
+<td class="num">656</td>
+<td class="diag-sintiron">Sin tirón</td>
+</tr>
+<tr>
+<td>10 de junio de 2026</td>
+<td class="titulo"><a href="https://youtube.com/watch?v=wyQJXGVBw0Y" target="_blank" rel="noopener">La clase media está siendo DESTRUIDA por la inflación | Pedro Marín #shorts</a></td>
+<td class="num">1.83%</td>
+<td class="num">72.5%</td>
+<td class="num">1.081</td>
+<td class="diag-joya">Joya oculta</td>
+</tr>
+<tr>
+<td>10 de junio de 2026</td>
+<td class="titulo"><a href="https://youtube.com/watch?v=l5saE12nj3k" target="_blank" rel="noopener">China y Rusia quieren CAMBIAR el mundo | Juan Pina #shorts</a></td>
+<td class="num">1.93%</td>
+<td class="num">69.4%</td>
+<td class="num">1.071</td>
+<td class="diag-joya">Joya oculta</td>
+</tr>
+<tr>
+<td>9 de junio de 2026</td>
+<td class="titulo"><a href="https://youtube.com/watch?v=hJnNCGxLm3g" target="_blank" rel="noopener">Europa NO puede seguir dependiendo de EE.UU. | Juan Pina #shorts</a></td>
+<td class="num">1.88%</td>
+<td class="num">72.4%</td>
+<td class="num">1.281</td>
+<td class="diag-joya">Joya oculta</td>
+</tr>
+<tr>
+<td>9 de junio de 2026</td>
+<td class="titulo"><a href="https://youtube.com/watch?v=jZ3F7UgxgnQ" target="_blank" rel="noopener">Ahora es momento del VALUE investing | Pedro Marín #shorts</a></td>
+<td class="num">1.72%</td>
+<td class="num">50.0%</td>
+<td class="num">836</td>
+<td class="diag-sintiron">Sin tirón</td>
+</tr>
+<tr>
+<td>8 de junio de 2026</td>
+<td class="titulo"><a href="https://youtube.com/watch?v=J2Jc2BFoPx8" target="_blank" rel="noopener">El POPULISMO está destruyendo Occidente | Juan Pina #shorts</a></td>
+<td class="num">1.59%</td>
+<td class="num">69.2%</td>
+<td class="num">1.037</td>
+<td class="diag-joya">Joya oculta</td>
+</tr>
+<tr>
+<td>8 de junio de 2026</td>
+<td class="titulo"><a href="https://youtube.com/watch?v=imXOSeWbTgg" target="_blank" rel="noopener">La BANCA PRIVADA como nunca te la habían explicado | Pedro Marín #shorts</a></td>
+<td class="num">1.66%</td>
+<td class="num">47.7%</td>
+<td class="num">237</td>
+<td class="diag-sintiron">Sin tirón</td>
+</tr>
+<tr>
+<td>7 de junio de 2026</td>
+<td class="titulo"><a href="https://youtube.com/watch?v=p-syVPSPfSU" target="_blank" rel="noopener">Rusia es una amenaza para TODA Europa | Juan Pina  #shorts</a></td>
+<td class="num">2.74%</td>
+<td class="num">74.5%</td>
+<td class="num">1.500</td>
+<td class="diag-joya">Joya oculta</td>
+</tr>
+<tr>
+<td>6 de junio de 2026</td>
+<td class="titulo"><a href="https://youtube.com/watch?v=kTYHSSZbSl4" target="_blank" rel="noopener">La ILUSTRACIÓN creó el mundo moderno | Juan Pina #shorts</a></td>
+<td class="num">1.91%</td>
+<td class="num">68.4%</td>
+<td class="num">1.228</td>
+<td class="diag-joya">Joya oculta</td>
+</tr>
+<tr>
+<td>6 de junio de 2026</td>
+<td class="titulo"><a href="https://youtube.com/watch?v=3yNpum2J_kU" target="_blank" rel="noopener">Las restricciones migratorias CREARON el problema | Tom Palmer #shorts</a></td>
+<td class="num">2.4%</td>
+<td class="num">63.4%</td>
+<td class="num">1.165</td>
+<td class="diag-sintiron">Sin tirón</td>
+</tr>
+<tr>
+<td>5 de junio de 2026</td>
+<td class="titulo"><a href="https://youtube.com/watch?v=R5-exeFGKcM" target="_blank" rel="noopener">La libertad de expresión está siendo ATACADA | Tom Palmer #shorts</a></td>
+<td class="num">1.47%</td>
+<td class="num">23.5%</td>
+<td class="num">413</td>
+<td class="diag-sintiron">Sin tirón</td>
+</tr>
+<tr>
+<td>4 de junio de 2026</td>
+<td class="titulo"><a href="https://youtube.com/watch?v=Q6reWXZu6zY" target="_blank" rel="noopener">España va camino del EMPOBRECIMIENTO | José María Rotellar #shorts</a></td>
+<td class="num">1.73%</td>
+<td class="num">72.2%</td>
+<td class="num">1.659</td>
+<td class="diag-joya">Joya oculta</td>
+</tr>
+<tr>
+<td>4 de junio de 2026</td>
+<td class="titulo"><a href="https://youtube.com/watch?v=1vuJ-i2Nt8E" target="_blank" rel="noopener">El libre comercio EVITA las guerras | Tom Palmer #shorts</a></td>
+<td class="num">0.52%</td>
+<td class="num">38.8%</td>
+<td class="num">1.041</td>
+<td class="diag-sintiron">Sin tirón</td>
+</tr>
+<tr>
+<td>3 de junio de 2026</td>
+<td class="titulo"><a href="https://youtube.com/watch?v=N_SnTQ2NATY" target="_blank" rel="noopener">España es hoy MÁS pobre que en 2017 | José María Rotellar #shorts</a></td>
+<td class="num">2.37%</td>
+<td class="num">74.2%</td>
+<td class="num">1.609</td>
+<td class="diag-joya">Joya oculta</td>
+</tr>
+<tr>
+<td>3 de junio de 2026</td>
+<td class="titulo"><a href="https://youtube.com/watch?v=HoiEUCkiXNY" target="_blank" rel="noopener">La política exterior de EE.UU. es VERGONZOSA | Tom Palmer #shorts</a></td>
+<td class="num">2.47%</td>
+<td class="num">106.2%</td>
+<td class="num">1.269</td>
+<td class="diag-joya">Joya oculta</td>
+</tr>
+<tr>
+<td>3 de junio de 2026</td>
+<td class="titulo"><a href="https://youtube.com/watch?v=AdqfN_EL7-E" target="_blank" rel="noopener">La economía española está «ANESTESIADA» y puede TERMINAR MUY MAL | José María Rotellar 4 #podcast</a></td>
+<td class="num">1.1%</td>
+<td class="num">61.5%</td>
+<td class="num">415</td>
+<td class="diag-sintiron">Sin tirón</td>
+</tr>
+<tr>
+<td>2 de junio de 2026</td>
+<td class="titulo"><a href="https://youtube.com/watch?v=qNBFKBhQaLU" target="_blank" rel="noopener">“La libertad NO tiene nada que ver con esto” | Tom Palmer  #shorts</a></td>
+<td class="num">1.67%</td>
+<td class="num">51.6%</td>
+<td class="num">640</td>
+<td class="diag-sintiron">Sin tirón</td>
+</tr>
+<tr>
+<td>1 de junio de 2026</td>
+<td class="titulo"><a href="https://youtube.com/watch?v=ZUWLIXuoOvI" target="_blank" rel="noopener">La política del ODIO destruye la libertad | Tom Palmer #shorts</a></td>
+<td class="num">2.94%</td>
+<td class="num">31.8%</td>
+<td class="num">190</td>
+<td class="diag-sintiron">Sin tirón</td>
+</tr>
+<tr>
+<td>31 de mayo de 2026</td>
+<td class="titulo"><a href="https://youtube.com/watch?v=cGEt7yfFu1o" target="_blank" rel="noopener">España necesita un CAMBIO de paradigma | Marc Urgell #shorts</a></td>
+<td class="num">3.41%</td>
+<td class="num">60.0%</td>
+<td class="num">1.254</td>
+<td class="diag-sintiron">Sin tirón</td>
+</tr>
+<tr>
+<td>30 de mayo de 2026</td>
+<td class="titulo"><a href="https://youtube.com/watch?v=OmJ5zGPYLv8" target="_blank" rel="noopener">El Estado quiere controlar DEMASIADO | Marc Urgell #shorts</a></td>
+<td class="num">3.76%</td>
+<td class="num">66.7%</td>
+<td class="num">1.622</td>
+<td class="diag-exito">Éxito orgánico</td>
+</tr>
+<tr>
+<td>29 de mayo de 2026</td>
+<td class="titulo"><a href="https://youtube.com/watch?v=i95w-DHaYqo" target="_blank" rel="noopener">España está ASFIXIANDO a sus emprendedores | Marc Urgell #shorts</a></td>
+<td class="num">3.46%</td>
+<td class="num">52.9%</td>
+<td class="num">1.670</td>
+<td class="diag-sintiron">Sin tirón</td>
+</tr>
+<tr>
+<td>28 de mayo de 2026</td>
+<td class="titulo"><a href="https://youtube.com/watch?v=i_-B_pzxTQQ" target="_blank" rel="noopener">España tiene el PEOR sistema fiscal del mundo | Marc Urgell #shorts</a></td>
+<td class="num">3.11%</td>
+<td class="num">76.3%</td>
+<td class="num">5.040</td>
+<td class="diag-joya">Joya oculta</td>
+</tr>
+<tr>
+<td>27 de mayo de 2026</td>
+<td class="titulo"><a href="https://youtube.com/watch?v=xuv1HfvTwy0" target="_blank" rel="noopener">España necesita un presidente como MILEI | Marc Urgell #shorts</a></td>
+<td class="num">4.2%</td>
+<td class="num">72.0%</td>
+<td class="num">1.740</td>
+<td class="diag-exito">Éxito orgánico</td>
+</tr>
+<tr>
+<td>24 de mayo de 2026</td>
+<td class="titulo"><a href="https://youtube.com/watch?v=wIp0pyfBxPc" target="_blank" rel="noopener">Lo que el PETRÓLEO está diciendo sobre la GUERRA | Daniel Lacalle #shorts</a></td>
+<td class="num">3.45%</td>
+<td class="num">46.5%</td>
+<td class="num">311</td>
+<td class="diag-sintiron">Sin tirón</td>
+</tr>
+<tr>
+<td>23 de mayo de 2026</td>
+<td class="titulo"><a href="https://youtube.com/watch?v=QT0EefmJUM8" target="_blank" rel="noopener">La moneda de los BRICS es una FANTASÍA | Daniel Lacalle #shorts</a></td>
+<td class="num">1.99%</td>
+<td class="num">119.0%</td>
+<td class="num">1.585</td>
+<td class="diag-joya">Joya oculta</td>
+</tr>
+<tr>
+<td>22 de mayo de 2026</td>
+<td class="titulo"><a href="https://youtube.com/watch?v=bLlghkqg9pE" target="_blank" rel="noopener">Los bancos centrales están evitando la CRISIS, ¿pero a qué COSTO? | Daniel Lacalle #shorts</a></td>
+<td class="num">2.56%</td>
+<td class="num">59.6%</td>
+<td class="num">814</td>
+<td class="diag-sintiron">Sin tirón</td>
+</tr>
+<tr>
+<td>21 de mayo de 2026</td>
+<td class="titulo"><a href="https://youtube.com/watch?v=xuetlx7CPOY" target="_blank" rel="noopener">China tiene un problema que el mundo NO está viendo | Daniel Lacalle #shorts</a></td>
+<td class="num">3.2%</td>
+<td class="num">77.6%</td>
+<td class="num">950</td>
+<td class="diag-joya">Joya oculta</td>
+</tr>
+<tr>
+<td>20 de mayo de 2026</td>
+<td class="titulo"><a href="https://youtube.com/watch?v=MiuysSVl9dY" target="_blank" rel="noopener">¿La guerra NO genera inflación? | Daniel Lacalle #shorts</a></td>
+<td class="num">1.83%</td>
+<td class="num">64.8%</td>
+<td class="num">1.199</td>
+<td class="diag-sintiron">Sin tirón</td>
+</tr>
+<tr>
+<td>10 de mayo de 2026</td>
+<td class="titulo"><a href="https://youtube.com/watch?v=tWtUMAz1gmg" target="_blank" rel="noopener">¡ESCÁNDALO EPSTEIN en ESPAÑA!  | Julio César Ruiz #shorts</a></td>
+<td class="num">1.35%</td>
+<td class="num">71.7%</td>
+<td class="num">851</td>
+<td class="diag-joya">Joya oculta</td>
+</tr>
+<tr>
+<td>10 de mayo de 2026</td>
+<td class="titulo"><a href="https://youtube.com/watch?v=HQun8iCOeqM" target="_blank" rel="noopener">¡ESCÁNDALO EPSTEIN en ESPAÑA!  | Julio César Ruiz #shorts</a></td>
+<td class="num">1.82%</td>
+<td class="num">73.9%</td>
+<td class="num">183</td>
+<td class="diag-joya">Joya oculta</td>
+</tr>
+<tr>
+<td>9 de mayo de 2026</td>
+<td class="titulo"><a href="https://youtube.com/watch?v=SblYs4h0E_w" target="_blank" rel="noopener">Así EPSTEIN generó MILLONES de dolares  | Julio César Ruiz #shorts</a></td>
+<td class="num">1.44%</td>
+<td class="num">60.0%</td>
+<td class="num">916</td>
+<td class="diag-sintiron">Sin tirón</td>
+</tr>
+<tr>
+<td>8 de mayo de 2026</td>
+<td class="titulo"><a href="https://youtube.com/watch?v=0rLehpKEsN8" target="_blank" rel="noopener">El avión de EPSTEIN revela algo INQUIETANTE | Julio César Ruiz</a></td>
+<td class="num">1.12%</td>
+<td class="num">89.5%</td>
+<td class="num">1.381</td>
+<td class="diag-joya">Joya oculta</td>
+</tr>
+<tr>
+<td>7 de mayo de 2026</td>
+<td class="titulo"><a href="https://youtube.com/watch?v=ojoLTMN7OPQ" target="_blank" rel="noopener">Así MANIPULABA EPSTEIN a sus víctimas  | Julio César Ruiz</a></td>
+<td class="num">1.96%</td>
+<td class="num">59.4%</td>
+<td class="num">1.048</td>
+<td class="diag-sintiron">Sin tirón</td>
+</tr>
+<tr>
+<td>7 de mayo de 2026</td>
+<td class="titulo"><a href="https://youtube.com/watch?v=5mU5B1dWK04" target="_blank" rel="noopener">Estar en CONTRA del LUCRO es INMORAL | Alejandro de León</a></td>
+<td class="num">3.14%</td>
+<td class="num">41.0%</td>
+<td class="num">825</td>
+<td class="diag-sintiron">Sin tirón</td>
+</tr>
+<tr>
+<td>6 de mayo de 2026</td>
+<td class="titulo"><a href="https://youtube.com/watch?v=dN5B7CDYnMc" target="_blank" rel="noopener">¿Silenciaron a EPSTEIN para proteger a otros? | Julio César Ruiz</a></td>
+<td class="num">1.23%</td>
+<td class="num">62.5%</td>
+<td class="num">873</td>
+<td class="diag-sintiron">Sin tirón</td>
+</tr>
+<tr>
+<td>6 de mayo de 2026</td>
+<td class="titulo"><a href="https://youtube.com/watch?v=zXyCZcZsCMA" target="_blank" rel="noopener">NO hay NADA más SOCIAL que el CAPITALISMO | Alejandro de León</a></td>
+<td class="num">1.15%</td>
+<td class="num">73.0%</td>
+<td class="num">215</td>
+<td class="diag-joya">Joya oculta</td>
+</tr>
+<tr>
+<td>5 de mayo de 2026</td>
+<td class="titulo"><a href="https://youtube.com/watch?v=Yl87aIxx_kM" target="_blank" rel="noopener">Seremos DIOSES con PRÓTESIS | Alejandro de León</a></td>
+<td class="num">1.32%</td>
+<td class="num">36.7%</td>
+<td class="num">736</td>
+<td class="diag-sintiron">Sin tirón</td>
+</tr>
+<tr>
+<td>4 de mayo de 2026</td>
+<td class="titulo"><a href="https://youtube.com/watch?v=H5g6ML7YRjQ" target="_blank" rel="noopener">La verdadera DEMOCRACIA se llama LIBRE MERCADO | Alejandro de León.</a></td>
+<td class="num">2.07%</td>
+<td class="num">53.1%</td>
+<td class="num">764</td>
+<td class="diag-sintiron">Sin tirón</td>
+</tr>
+<tr>
+<td>3 de mayo de 2026</td>
+<td class="titulo"><a href="https://youtube.com/watch?v=XbUPfjXVIaE" target="_blank" rel="noopener">¿Los ODS son INMORALES? Alejandro de León responde</a></td>
+<td class="num">2.55%</td>
+<td class="num">66.7%</td>
+<td class="num">1.611</td>
+<td class="diag-joya">Joya oculta</td>
+</tr>
+<tr>
+<td>2 de mayo de 2026</td>
+<td class="titulo"><a href="https://youtube.com/watch?v=9V7xfWiT-Ig" target="_blank" rel="noopener">Aunque no lo sepas… eres FREUDIANO | Carlos Pitillas</a></td>
+<td class="num">3.4%</td>
+<td class="num">48.8%</td>
+<td class="num">937</td>
+<td class="diag-sintiron">Sin tirón</td>
+</tr>
+<tr>
+<td>1 de mayo de 2026</td>
+<td class="titulo"><a href="https://youtube.com/watch?v=YynjakYz1pQ" target="_blank" rel="noopener">La explicación PSICOLÓGICA del POPULISMO moderno | Carlos Pitillas</a></td>
+<td class="num">1.58%</td>
+<td class="num">36.2%</td>
+<td class="num">842</td>
+<td class="diag-sintiron">Sin tirón</td>
+</tr>
+<tr>
+<td>30 de abril de 2026</td>
+<td class="titulo"><a href="https://youtube.com/watch?v=J929u8HsENs" target="_blank" rel="noopener">FREUD vio venir el CAOS del siglo XX | Carlos Pitillas</a></td>
+<td class="num">1.93%</td>
+<td class="num">55.4%</td>
+<td class="num">1.404</td>
+<td class="diag-sintiron">Sin tirón</td>
+</tr>
+<tr>
+<td>30 de abril de 2026</td>
+<td class="titulo"><a href="https://youtube.com/watch?v=CH8Tc_4EpjM" target="_blank" rel="noopener">El CAPITALISMO es el sistema más SOCIAL que hay | Alejandro de León #3</a></td>
+<td class="num">4.44%</td>
+<td class="num">50.0%</td>
+<td class="num">1.016</td>
+<td class="diag-promesa">Promesa incumplida</td>
+</tr>
+<tr>
+<td>29 de abril de 2026</td>
+<td class="titulo"><a href="https://youtube.com/watch?v=Kja3tcHCw-0" target="_blank" rel="noopener">La VERDAD incómoda sobre la CIVILIZACIÓN | Carlos Pitillas</a></td>
+<td class="num">2.44%</td>
+<td class="num">47.5%</td>
+<td class="num">830</td>
+<td class="diag-sintiron">Sin tirón</td>
+</tr>
+<tr>
+<td>28 de abril de 2026</td>
+<td class="titulo"><a href="https://youtube.com/watch?v=iO8XUSEwlU4" target="_blank" rel="noopener">La RAZÓN por la que las CIUDADES compiten por ti | Carlos Pitillas</a></td>
+<td class="num">3.42%</td>
+<td class="num">48.5%</td>
+<td class="num">1.338</td>
+<td class="diag-sintiron">Sin tirón</td>
+</tr>
+<tr>
+<td>27 de abril de 2026</td>
+<td class="titulo"><a href="https://youtube.com/watch?v=bZb6evOvmKU" target="_blank" rel="noopener">7 INDICADORES para ENTENDER el MUNDO | Gustavo Martínez en Lib TV</a></td>
+<td class="num">3.56%</td>
+<td class="num">64.7%</td>
+<td class="num">1.266</td>
+<td class="diag-promesa">Promesa incumplida</td>
+</tr>
+<tr>
+<td>26 de abril de 2026</td>
+<td class="titulo"><a href="https://youtube.com/watch?v=FgPylFxjiug" target="_blank" rel="noopener">Los BANCOS CENTRALES NO QUIEREN que ENTIENDAS ESTO | Gustavo Martínez en Lib TV</a></td>
+<td class="num">2.53%</td>
+<td class="num">54.5%</td>
+<td class="num">1.063</td>
+<td class="diag-sintiron">Sin tirón</td>
+</tr>
+<tr>
+<td>25 de abril de 2026</td>
+<td class="titulo"><a href="https://youtube.com/watch?v=TXW1Y957J7c" target="_blank" rel="noopener">Las FINANZAS son LIBERALISMO en estado puro | Gustavo Martínez en Lib TV</a></td>
+<td class="num">3.19%</td>
+<td class="num">48.5%</td>
+<td class="num">1.055</td>
+<td class="diag-sintiron">Sin tirón</td>
+</tr>
+<tr>
+<td>24 de abril de 2026</td>
+<td class="titulo"><a href="https://youtube.com/watch?v=Chj1M-avxOQ" target="_blank" rel="noopener">El MEJOR momento para INVERTIR es HOY | Gustavo Martínez en Lib TV</a></td>
+<td class="num">5.9%</td>
+<td class="num">61.7%</td>
+<td class="num">1.276</td>
+<td class="diag-promesa">Promesa incumplida</td>
+</tr>
+<tr>
+<td>23 de abril de 2026</td>
+<td class="titulo"><a href="https://youtube.com/watch?v=wRLAWrRyR4M" target="_blank" rel="noopener">¿Por qué cuesta ENTENDER el ORO como inversión? | Gustavo Martínez en Lib TV</a></td>
+<td class="num">2.88%</td>
+<td class="num">59.3%</td>
+<td class="num">1.415</td>
+<td class="diag-sintiron">Sin tirón</td>
+</tr>
+<tr>
+<td>22 de abril de 2026</td>
+<td class="titulo"><a href="https://youtube.com/watch?v=ZNkM0ba3lyc" target="_blank" rel="noopener">¿Se ACERCA una CRISIS ECONÓMICA? | Gustavo Martínez en Lib TV</a></td>
+<td class="num">3.91%</td>
+<td class="num">63.8%</td>
+<td class="num">1.439</td>
+<td class="diag-promesa">Promesa incumplida</td>
+</tr>
+<tr>
+<td>21 de abril de 2026</td>
+<td class="titulo"><a href="https://youtube.com/watch?v=zbrdOba3gi8" target="_blank" rel="noopener">NO COMPRES ORO si NO ENTIENDES ESTO | Gustavo Martínez en Lib TV</a></td>
+<td class="num">4.33%</td>
+<td class="num">61.5%</td>
+<td class="num">1.605</td>
+<td class="diag-promesa">Promesa incumplida</td>
+</tr>
+<tr>
+<td>20 de abril de 2026</td>
+<td class="titulo"><a href="https://youtube.com/watch?v=xd7-CNkCP5I" target="_blank" rel="noopener">YA COMENZÓ el SUPER CICLO de COMMODITIES | Gustavo Martínez en Lib TV</a></td>
+<td class="num">5.65%</td>
+<td class="num">63.9%</td>
+<td class="num">2.435</td>
+<td class="diag-promesa">Promesa incumplida</td>
+</tr>
+<tr>
+<td>19 de abril de 2026</td>
+<td class="titulo"><a href="https://youtube.com/watch?v=9w4t5RjFzHE" target="_blank" rel="noopener">El DÓLAR está LLEGANDO a su FIN | Gustavo Martínez en Lib TV</a></td>
+<td class="num">2.66%</td>
+<td class="num">59.3%</td>
+<td class="num">1.562</td>
+<td class="diag-sintiron">Sin tirón</td>
+</tr>
+<tr>
+<td>18 de abril de 2026</td>
+<td class="titulo"><a href="https://youtube.com/watch?v=Vfo4evuBmFY" target="_blank" rel="noopener">Por esto TU DINERO ya NO VALE NADA | Gustavo Martínez en Lib TV</a></td>
+<td class="num">4.21%</td>
+<td class="num">60.3%</td>
+<td class="num">1.963</td>
+<td class="diag-promesa">Promesa incumplida</td>
+</tr>
+<tr>
+<td>17 de abril de 2026</td>
+<td class="titulo"><a href="https://youtube.com/watch?v=i_EtvH2crE0" target="_blank" rel="noopener">La GRAN ESTAFA llamada INFLACIÓN</a></td>
+<td class="num">2.46%</td>
+<td class="num">47.4%</td>
+<td class="num">1.108</td>
+<td class="diag-sintiron">Sin tirón</td>
+</tr>
+<tr>
+<td>16 de abril de 2026</td>
+<td class="titulo"><a href="https://youtube.com/watch?v=UKrbHSF-kWk" target="_blank" rel="noopener">¿Sigue siendo el ORO una buena inversión? | Gustavo Martínez en Libertad TV #2</a></td>
+<td class="num">2.78%</td>
+<td class="num">60.0%</td>
+<td class="num">2.083</td>
+<td class="diag-sintiron">Sin tirón</td>
+</tr>
+<tr>
+<td>30 de marzo de 2026</td>
+<td class="titulo"><a href="https://youtube.com/watch?v=TyE2X7HPogw" target="_blank" rel="noopener">¿Las empresas TECNOLÓGICAS son DEMASIADO grandes? | Domingo Soriano #1</a></td>
+<td class="num">3.0%</td>
+<td class="num">52.5%</td>
+<td class="num">1.156</td>
+<td class="diag-sintiron">Sin tirón</td>
+</tr>
+<tr>
+<td>29 de marzo de 2026</td>
+<td class="titulo"><a href="https://youtube.com/watch?v=0eTlREY0DpY" target="_blank" rel="noopener">Ten mucho CUIDADO con la RENTA VARIABLE por ESTO | Domingo Soriano #1</a></td>
+<td class="num">4.35%</td>
+<td class="num">59.6%</td>
+<td class="num">1.341</td>
+<td class="diag-promesa">Promesa incumplida</td>
+</tr>
+<tr>
+<td>26 de marzo de 2026</td>
+<td class="titulo"><a href="https://youtube.com/watch?v=V3qWcL_06K4" target="_blank" rel="noopener">Los gobiernos NO quieren que tengas PATRIMONIO | Domingo Soriano #1 #shorts</a></td>
+<td class="num">4.13%</td>
+<td class="num">81.5%</td>
+<td class="num">14.481</td>
+<td class="diag-exito">Éxito orgánico</td>
+</tr>
+<tr>
+<td>25 de marzo de 2026</td>
+<td class="titulo"><a href="https://youtube.com/watch?v=aW0ZQ605CKs" target="_blank" rel="noopener">EDUCACIÓN FINANCIERA y LIBERALISMO con Domingo Soriano | Podast Libertad TV x UFM #1  #libertad</a></td>
+<td class="num">1.65%</td>
+<td class="num">62.9%</td>
+<td class="num">1.870</td>
+<td class="diag-sintiron">Sin tirón</td>
+</tr>
+<tr>
+<td>21 de marzo de 2026</td>
+<td class="titulo"><a href="https://youtube.com/watch?v=xn1LhpSC764" target="_blank" rel="noopener">La regla básica de la VIDA que muchos OLVIDAN.</a></td>
+<td class="num">3.28%</td>
+<td class="num">45.8%</td>
+<td class="num">1.514</td>
+<td class="diag-sintiron">Sin tirón</td>
+</tr>
+<tr>
+<td>18 de marzo de 2026</td>
+<td class="titulo"><a href="https://youtube.com/watch?v=AQ-mzQEPNYA" target="_blank" rel="noopener">¿Por qué el PESIMISMO es tan ATRACTIVO?</a></td>
+<td class="num">2.87%</td>
+<td class="num">42.4%</td>
+<td class="num">1.423</td>
+<td class="diag-sintiron">Sin tirón</td>
+</tr>
+<tr>
+<td>1 de marzo de 2026</td>
+<td class="titulo"><a href="https://youtube.com/watch?v=OfcsN4r7Kis" target="_blank" rel="noopener">El PELIGRO de intentar FAVORECER la COMPETENCIA | Juan Ramón Rallo</a></td>
+<td class="num">3.66%</td>
+<td class="num">61.4%</td>
+<td class="num">1.338</td>
+<td class="diag-promesa">Promesa incumplida</td>
+</tr>
+<tr>
+<td>28 de febrero de 2026</td>
+<td class="titulo"><a href="https://youtube.com/watch?v=Oy8veg0bETE" target="_blank" rel="noopener">Sin esto, el LIBRE MERCADO no EXISTE. JUAN RAMÓN RALLO lo analiza.</a></td>
+<td class="num">2.28%</td>
+<td class="num">44.4%</td>
+<td class="num">982</td>
+<td class="diag-sintiron">Sin tirón</td>
+</tr>
+<tr>
+<td>27 de febrero de 2026</td>
+<td class="titulo"><a href="https://youtube.com/watch?v=QR8oHzOwrwo" target="_blank" rel="noopener">¿Qué es VERDADERAMENTE un MONOPOLIO?</a></td>
+<td class="num">3.32%</td>
+<td class="num">79.3%</td>
+<td class="num">783</td>
+<td class="diag-joya">Joya oculta</td>
+</tr>
+<tr>
+<td>26 de febrero de 2026</td>
+<td class="titulo"><a href="https://youtube.com/watch?v=RCdxoo0tfDs" target="_blank" rel="noopener">La libre COMPETENCIA mejora la vida de MILLONES de personas | JUAN RAMÓN RALLO te explica cómo.</a></td>
+<td class="num">2.6%</td>
+<td class="num">72.7%</td>
+<td class="num">2.309</td>
+<td class="diag-joya">Joya oculta</td>
+</tr>
+<tr>
+<td>25 de febrero de 2026</td>
+<td class="titulo"><a href="https://youtube.com/watch?v=pvUeUV4HGXQ" target="_blank" rel="noopener">¿Tiene el consumidor PODER en el MERCADO?</a></td>
+<td class="num">3.29%</td>
+<td class="num">95.8%</td>
+<td class="num">1.159</td>
+<td class="diag-joya">Joya oculta</td>
+</tr>
+<tr>
+<td>23 de febrero de 2026</td>
+<td class="titulo"><a href="https://youtube.com/watch?v=3mWdRuonaAU" target="_blank" rel="noopener">¿Y si TODOS dejáramos de CONFIAR en el LIBRE MERCADO?</a></td>
+<td class="num">2.54%</td>
+<td class="num">61.8%</td>
+<td class="num">219</td>
+<td class="diag-sintiron">Sin tirón</td>
+</tr>
+<tr>
+<td>22 de febrero de 2026</td>
+<td class="titulo"><a href="https://youtube.com/watch?v=KyaFxKdd6g8" target="_blank" rel="noopener">La REGULACIÓN puede FRENAR el PROGRESO</a></td>
+<td class="num">1.86%</td>
+<td class="num">42.0%</td>
+<td class="num">1.449</td>
+<td class="diag-sintiron">Sin tirón</td>
+</tr>
+<tr>
+<td>21 de febrero de 2026</td>
+<td class="titulo"><a href="https://youtube.com/watch?v=W6V29a28zF0" target="_blank" rel="noopener">El factor CLAVE que MEJORA la VIDA de todos.</a></td>
+<td class="num">2.42%</td>
+<td class="num">44.7%</td>
+<td class="num">1.439</td>
+<td class="diag-sintiron">Sin tirón</td>
+</tr>
+<tr>
+<td>20 de febrero de 2026</td>
+<td class="titulo"><a href="https://youtube.com/watch?v=FP155lAPzr8" target="_blank" rel="noopener">Esta es la CLAVE del PROGRESO en una SOCIEDAD</a></td>
+<td class="num">1.28%</td>
+<td class="num">36.8%</td>
+<td class="num">1.045</td>
+<td class="diag-sintiron">Sin tirón</td>
+</tr>
+<tr>
+<td>19 de febrero de 2026</td>
+<td class="titulo"><a href="https://youtube.com/watch?v=ZEiS3e58I54" target="_blank" rel="noopener">CAPITALISMO y DEMOCRACIA, la fórmula del PROGRESO</a></td>
+<td class="num">1.99%</td>
+<td class="num">52.3%</td>
+<td class="num">1.405</td>
+<td class="diag-sintiron">Sin tirón</td>
+</tr>
+<tr>
+<td>18 de febrero de 2026</td>
+<td class="titulo"><a href="https://youtube.com/watch?v=QKz8Xlp3k08" target="_blank" rel="noopener">Lo que NADIE entiende sobre la COORDINACIÓN | Juan Ramón Rallo lo explica.</a></td>
+<td class="num">3.71%</td>
+<td class="num">60.5%</td>
+<td class="num">1.749</td>
+<td class="diag-promesa">Promesa incumplida</td>
+</tr>
+<tr>
+<td>17 de febrero de 2026</td>
+<td class="titulo"><a href="https://youtube.com/watch?v=_VwwbJ1DEyI" target="_blank" rel="noopener">Este es el inmenso PODER de los PRECIOS</a></td>
+<td class="num">2.56%</td>
+<td class="num">81.2%</td>
+<td class="num">1.526</td>
+<td class="diag-joya">Joya oculta</td>
+</tr>
+<tr>
+<td>16 de febrero de 2026</td>
+<td class="titulo"><a href="https://youtube.com/watch?v=MEhPKT5zMSY" target="_blank" rel="noopener">El SECRETO que NADIE cuenta de los precios.</a></td>
+<td class="num">4.3%</td>
+<td class="num">55.8%</td>
+<td class="num">1.222</td>
+<td class="diag-promesa">Promesa incumplida</td>
+</tr>
+<tr>
+<td>14 de febrero de 2026</td>
+<td class="titulo"><a href="https://youtube.com/watch?v=zdaNOrCfD9w" target="_blank" rel="noopener">El PROBLEMA que el SISTEMA NO puede RESOLVER | Juan Ramón Rallo lo explica</a></td>
+<td class="num">3.56%</td>
+<td class="num">53.5%</td>
+<td class="num">1.306</td>
+<td class="diag-promesa">Promesa incumplida</td>
+</tr>
+<tr>
+<td>13 de febrero de 2026</td>
+<td class="titulo"><a href="https://youtube.com/watch?v=G268rf8bYdY" target="_blank" rel="noopener">Por esto es IMPOSIBLE planificar centralizadamente la ECONOMÍA | JUAN RAMÓN RALLO lo explica.</a></td>
+<td class="num">4.74%</td>
+<td class="num">52.9%</td>
+<td class="num">1.383</td>
+<td class="diag-promesa">Promesa incumplida</td>
+</tr>
+</table>
+</div>
+
+<footer>Generado el 4 de septiembre de 2026 · UFM Madrid · Libertad TV</footer>
+
+</div>
+</div>
+
+<script>
+function checkPwd() {
+  const val = document.getElementById('pwd-input').value;
+  if (val === 'ManuelAyau1971') {
+    sessionStorage.setItem('ltv_auth', '1');
+    showDashboard();
+  } else {
+    document.getElementById('pwd-error').style.display = 'block';
+    document.getElementById('pwd-input').value = '';
+    document.getElementById('pwd-input').focus();
+  }
+}
+function showDashboard() {
+  document.getElementById('gate').style.display = 'none';
+  document.getElementById('app').style.display = 'block';
+}
+if (sessionStorage.getItem('ltv_auth') === '1') {
+  showDashboard();
+}
+</script>
